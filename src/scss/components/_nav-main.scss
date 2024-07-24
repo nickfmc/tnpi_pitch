@@ -1,0 +1,143 @@
+/* ==========================================================================
+   MAIN NAVIGATION AND MENU STYLES
+   ========================================================================== */
+
+// ++ hide main-navigation wrapper (responsive first) +++++++++++++++++++++++++++++++++
+.c-main-navigation {
+  display: none;
+}
+
+// ++ show main navigation wrapper when the time is right ++++++++++++++++++++++++++++++++++++
+@media (width >= $bp-large) {
+  .c-main-navigation {
+    /* DISPLAY FULL SIZE MENU */
+    display: block;
+    padding-left: calc(#{$logo-size} + 1rem);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+
+
+// ++ menu styles (top level) +++++++++++++++++++++++++++++++++
+@media (width >= $bp-large) {
+  .c-main-menu {
+    display: inline-flex;
+    align-items: flex-start;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .c-main-menu > li {
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    white-space: nowrap;
+  }
+  .c-main-menu > li > a {
+    color: $color-secondary;
+    display: block;
+    font-size: 1rem;
+    margin: 0;
+    padding: 41px 1rem;
+    position: relative;
+    &:first-of-type > a {
+      padding-left: 0;
+    }
+    &:last-of-type > a {
+      padding-right: 0;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: calc(100% - 32px);
+      height: 4px;
+      background-color: #fff;
+      border-radius: 20px;
+      top: 25px;
+      transition: $transition-ease;
+    }
+    
+  }
+  .c-main-menu > li > a:hover {
+    color: #000;
+    &::after {
+      background-color: $color-primary;
+      transition: $transition-ease;
+    }
+  }
+  .c-main-menu > li:hover a{
+   
+    &::after {
+      background-color: $color-primary;
+      transition: $transition-ease;
+    }
+  }
+  .c-main-menu > .current-menu-item > a,
+  .c-main-menu > .current-page-ancestor > a,
+  .c-main-menu > .current_page_item > a,
+  .c-main-menu > .current_page_parent > a,
+  .c-main-menu > .current_page_ancestor > a {
+    color: #222222
+  }
+}
+// END menu top level
+
+
+
+// ++ menu style (drop down!) +++++++++++++++++++++++++++++++++
+@media (width >= $bp-large) {
+  .c-main-menu li:hover ul, 
+  .c-main-menu li.focus ul {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+  .c-main-menu ul {
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 180px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 200ms linear;
+    z-index: z(dropdown);
+  }
+  .c-main-menu ul li {
+    position: relative;
+    max-height: 0;
+    transition: max-height 300ms linear;
+    overflow: hidden;
+  }
+  .c-main-menu li:hover ul li,
+  .c-main-menu li.focus ul li {
+    max-height: 140px;
+  }
+  .c-main-menu ul li a {
+    color: $color-primary;
+    font-size: 0.938rem;
+    padding: 12px 15px;
+    width: 100%;
+    display: block;
+    transition: $transition-ease;
+  }
+  .c-main-menu ul li a:hover,
+  .c-main-menu ul .current-menu-item > a,
+  .c-main-menu ul .current-menu-parent > a,
+  .c-main-menu ul .current_page_item > a,
+  .c-main-menu ul .current_page_parent > a,
+  .c-main-menu ul .current_page_ancestor > a {
+    color: #ffffff;
+    background-color: $color-primary;
+    text-decoration: underline;
+  }
+}
+// END drop down styling
