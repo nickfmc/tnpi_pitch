@@ -12,7 +12,8 @@ register_nav_menus(
   array(
     'main-menu' => 'Primary Menu',           // main nav menu
     'tertiary-menu' => 'Tertiary Menu',      // tertiary nav menu
-    'mobile-menu' => 'Mobile Menu'      // mobile nav menu
+    'mobile-menu' => 'Mobile Menu',      // mobile nav menu
+    'footer-menu' => 'Footer Menu'           // footer nav menu
   )
 );
 
@@ -28,8 +29,18 @@ function gdt_nav_menu( $theme_location, $class )
       'menu_class' => $class . '',
       'echo' => 0,
     ));
-  }
+  } 
   echo $menu;
+}
+
+
+function walked_nav_menu( $theme_location, $menu_class, $args = array() ) {
+    $defaults = array(
+        'theme_location' => $theme_location,
+        'menu_class'     => $menu_class,
+    );
+    $args = wp_parse_args( $args, $defaults );
+    wp_nav_menu( $args );
 }
 
 

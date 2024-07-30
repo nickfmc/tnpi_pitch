@@ -10,24 +10,40 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'blockname-' . $block['id'];
+$id = 'c-breadcrumbs-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'blockname';
+$className = 'c-breadcrumbs';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
-if( !empty($block['align']) ) {
-    $className .= ' align' . $block['align'];
-}
+
 if( $is_preview ) {
     $className .= ' is-admin';
 }
 
+
 ?>
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-   
+<?php if( get_field('color') ) { $color = get_field('color'); }?>
+ 
+<div id="<?php echo esc_attr($id); ?>" class="c-breadcrumbs-<?php echo $color;?> <?php echo esc_attr($className); ?> ">
+
+<?php if( get_field('title_overide') ) { 
+    echo '<h1>' . get_field('title_overide') . '</h1>'; 
+} else { 
+    echo '<h1>' . get_the_title() . '</h1>'; 
+} ?>
+
+
+<?php
+    // Display Yoast SEO breadcrumbs
+    if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+      }
+?>
+
+
 </div>

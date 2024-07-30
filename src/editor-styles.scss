@@ -104,7 +104,7 @@ body .wp-block-column {
    body .wp-block-column {
 	 @media(width <=$bp-medium) {
 	   flex-basis: 100% !important; 
-	   margin: 0 0 25px 0 !important;
+	   margin: 0 0 30px 0 !important;
 	 }
 	  
    }
@@ -115,7 +115,7 @@ body .wp-block-column {
    .wp-block-column {
 	  flex-basis: 100% !important;
 	  max-width: 100%;
-	  margin: 0 0 25px 0 !important;
+	  margin: 0 0 30px 0 !important;
 	}
    }
   }

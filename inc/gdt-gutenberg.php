@@ -71,9 +71,10 @@ function maw_register_guten_script() {
 // Add ACF json blocks.
 
 function register_acf_blocks() { 
-  register_block_type(  get_stylesheet_directory() . '/template-part/block/button/block.json' );
-  register_block_type(  get_stylesheet_directory() . '/template-part/block/swiper-material/block.json' );
-  register_block_type(  get_stylesheet_directory() . '/template-part/block/swiper-projects/block.json' );
+  register_block_type(  get_stylesheet_directory() . '/template-part/block/banner/block.json' );
+  register_block_type(  get_stylesheet_directory() . '/template-part/block/breadcrumbs/block.json' );
+  // register_block_type(  get_stylesheet_directory() . '/template-part/block/swiper-material/block.json' );
+  // register_block_type(  get_stylesheet_directory() . '/template-part/block/swiper-projects/block.json' );
 }
 
 add_action( 'init', 'register_acf_blocks', 5 );

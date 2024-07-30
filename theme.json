@@ -12,34 +12,60 @@
 			"palette": [
 				{
                     "name": "Black",
-					"slug": "black",
+					"slug": "mawblack",
 					"color": "#000000"
 				},
 				{
-					"slug": "white",
+					"slug": "mawwhite",
 					"color": "#FFFFFF",
 					"name": "White"
 				},
                 {
 					"slug": "dark-grey",
-					"color": "#121212",
+					"color": "#455560",
 					"name": "Dark grey"
 				},
 				{
 					"slug": "medium-grey",
-					"color": "#383838",
+					"color": "#717073",
 					"name": "Medium grey"
 				},
 				{
-					"slug": "primary",
-					"color": "#00838f",
-					"name": "Primary"
+					"slug": "light-grey",
+					"color": "#BABCBE",
+					"name": "Light grey"
 				},
 				{
-					"slug": "secondary",
-					"color": "#4fb3bf",
-					"name": "Secondary" 
+					"slug": "light-blue",
+					"color": "#739DD2",
+					"name": "Light blue"
 				},
+				{
+					"slug": "med-blue",
+					"color": "#026CB6",
+					"name": "Medium blue"
+				},
+				{
+					"slug": "dark-blue",
+					"color": "#1C2674",
+					"name": "Darkest blue"
+				},
+				{
+					"slug": "darkish-blue",
+					"color": "#28317B",
+					"name": "Dark blue"
+				},
+				{
+					"slug": "dark-green",
+					"color": "#006B6E",
+					"name": "Dark green"
+				},
+				{
+					"slug": "light-green",
+					"color": "#A0CF67",
+					"name": "Light green"
+				},
+								
 				{
 					"slug": "transparent",
 					"color": "transparent",
@@ -61,7 +87,7 @@
 		
     },
     "layout": {
-        "contentSize": "1180px"
+        "contentSize": "1440px"
 	},
 	"typography": {
 		"fontSizes": [

@@ -1,4 +1,20 @@
   <footer class="o-section c-page-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+    <div class="c-page-footer-topper">
+      <div class="o-wrapper-wide">
+        <h4 class="is-style-u-eyebrow-heading u-ttu">
+            TNPI Emergency Line: <a href="tel:18003610608" aria-label="Call TNPI Emergency Line at 1-800-361-0608">1-800-361-0608</a>
+        </h4>
+      </div>
+    </div>
+    <div class="c-page-footer-spacer"><div class="o-wrapper-wide"></div></div>
+    <div class="c-page-footer-nav">
+      <div class="o-wrapper-wide">
+        <nav class="c-footer-nav" role="navigation" aria-label="Footer Navigation">
+        <?php gdt_nav_menu( 'footer-menu', 'c-footer-nav-menu' ); ?>
+        </nav>
+      </div>
+    </div>
+
 
     <div class="c-page-footer-upper">
       <div class="o-wrapper-wide">
@@ -34,7 +50,7 @@
       <div class="o-wrapper-wide">
         <div class="">
             <div class="c-copywrite">
-              &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.
+              &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>
             </div>
         </div>
       </div>

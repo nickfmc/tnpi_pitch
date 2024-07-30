@@ -4,7 +4,7 @@
 
 // A lot of time went into testing this and making it work with 3rd party blocks and get nesting of blocks to work, any changes here should be really tested and considered before modifying.
 
-$paddingHorizontal: 25px; 
+$paddingHorizontal: 30px; 
 .editor-content {
  
   padding: 0 $paddingHorizontal;
@@ -61,15 +61,25 @@ $paddingHorizontal: 25px;
   // used when alignfull content has bg image that is position fixed.
   &.parafull {
     transform: none;
-    left: -25px;
+    left: -30px;
   }
 }
 
 .editor-content > .gb-container.alignfull {
-  padding-left: 25px;
-  padding-right: 25px;
+  // LEAVING THIS OFF FOR NOW, WE HAVE INTERNAL 30px
+  // padding-left: 30px;
+  // padding-right: 30px;
   position: relative;
 
+  > .gb-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+ }
+
+ .editor-content > .gb-container.alignfull .gb-container.u-no-xpad {
+  padding-left: 0;
+  padding-right: 0;
  }
 
 
@@ -145,29 +155,44 @@ $paddingHorizontal: 25px;
 // ++ ul list block (with custom class added) +++++++++++++++++++++++++++++++++
 .editor-content ul {
   list-style-type: none;
-  margin: 1rem 0 1rem 20px;
+  margin: 1rem 0 1rem 5px;
   padding: 0;
   overflow: hidden;
-  @media(width >= $bp-large) {
-  margin-left: 30px;
-  } 
+justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
 }
+
+.editor-content ul.is-style-u-centered-list {
+li {
+  display: inline-flex;
+  align-self: center;
+}
+}
+
 .editor-content ul li {
   margin: 0;
-  padding: 0 0 10px 12px;
+  padding: 0 0 10px 16px;
   position: relative;
   font-size: clamped(16px, 18px);
+
+  // display: inline-flex;
+  // align-self: center;
 }
 .editor-content ul li::before {
   display: block; 
-  background-color: #333;
+  background-color: $color-orange-dark;
   content: "";
 	position: absolute;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  top: 0.58em;
+  top: 12px;
   left: 0;
+}
+
+.editor-content .o-blue-wrapper  ul li::before {
+  background-color: $color-orange;
 }
 
 .editor-content  .stk-block-icon-list  ul {
@@ -184,27 +209,34 @@ $paddingHorizontal: 25px;
 // ++ ol list block (with custom class added) +++++++++++++++++++++++++++++++++
 .editor-content ol {
   counter-reset: item;
-  margin: 1rem 0 1rem 30px;
+  margin: 1rem 0 1rem 5px;
   padding: 0;
   overflow: hidden;
 }
 .editor-content ol > li {
-  padding: 0 0 0.5rem 23px; 
+  padding: 0 0 0.5rem 30px;  
   position: relative;
   text-indent: 0; 
   font-size: clamped(16px, 17px);
   list-style: none; 
 }
 
+.editor-content ol {
+  counter-reset: item; /* Initialize the counter */
+}
+
+.editor-content ol > li {
+  position: relative; /* Ensure the position is relative for absolute positioning of ::before */
+}
+
 .editor-content ol > li::before {
-  content: counter(item) "."; 
-  counter-increment: item;
-  color: currentColor;
+  content: counter(item, decimal-leading-zero) "."; /* Use decimal-leading-zero to add leading zero */
+  counter-increment: item; /* Increment the counter */
+  color: $color-orange;
   font-weight: 400;
   position: absolute;
   top: 0;
-  left: 0; 
-  width: 1.3rem;
+  left: 0;
   margin: 0 11px 0 0;
 }
 
@@ -255,7 +287,7 @@ body .u-break-early {
    .wp-block-column {
 	  flex-basis: 100% !important;
 	  max-width: 100%;
-	  margin: 0 0 25px 0 !important;
+	  margin: 0 0 30px 0 !important;
 	}
    }
   }
@@ -263,10 +295,13 @@ body .u-break-early {
 
   .has-large-font-size {
     line-height: 1.25;
+    font-size: clamped(21px, 24px) !important; 
+    line-height: 1.74;
   }
 
   .has-small-font-size {
   line-height: 1.8;
+  font-size: 16px !important;
   }
 
   .wp-block-image {

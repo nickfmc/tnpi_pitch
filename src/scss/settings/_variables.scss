@@ -12,8 +12,8 @@ $bp-xlarge: 1320px;
 // Match these to your theme.json layout settings.
 // Also check the setting of any block plugins you use to match these.
 // Keep the same, depricating wide usage.
-$wrapper-width-wide: 1180px; // Gutenberg Wide wrapper
-$wrapper-width-base: 1180px;  // Gutenberg Standard wrapper
+$wrapper-width-wide: 1440px; // Gutenberg Wide wrapper
+$wrapper-width-base: 1440px;  // Gutenberg Standard wrapper
 // Match these to your theme.json layout settings.
 
 
@@ -23,25 +23,42 @@ $page-header-height: 100px;
 
 
 // ++ COLOURS +++++++++++++++++++++++++++++++++
-$color-red:         #A82313;
- 
-$color-primary:       #460f5f; 
-$color-secondary:       #460f5f;
+$color-orange-dark:         #F26531;
+$color-orange:    #F68A33;
 
-$color-gray-light:        #EAEAEA;
-$color-gray-med:        #ACACAC;
-$color-gray-dark:        #323232;
+$color-yellow:    #FDB913;
+ 
+$color-primary:       #1C2674; 
+$color-secondary:     $color-orange;
+
+
+$color-blue-darkest:      #1C2674;
+$color-blue-dark:       #28317B;
+$color-blue-med:       #026CB6;
+.u-blue-dark {
+  color: $color-blue-med !important;
+}
+$color-blue-light:     #739DD2;
+
+
+$color-green-dark:     #006B6E;
+$color-green-light:      #A0CF67;
+
+$color-gray-light:        #BABCBE;
+$color-gray-med:        #717073;
+$color-gray-dark:        #455560;
+
 
 $color-black:           #000;
 $color-white:           #FFF;
 
 // assign colours to variables
-$alert-color:       $color-red;
+$alert-color:       $color-orange-dark;
 $text-color:        $color-black;
-$link-color:        $color-secondary;
-$link-hover:        $color-gray-dark;
+$link-color:        $color-orange;
+
 $border-color:      $color-gray-med;
-$heading-color:     $color-gray-dark;
+$heading-color:     $color-blue-dark;
 
 
 // ++ MISC VARS ++++++++++++++++++++++++++++++++++
@@ -53,12 +70,73 @@ $logo-size: 300px;
 
 // ++ TYPOGRAPHY +++++++++++++++++++++++++++++++++
 // Fonts
-$font-primary: 'rubik', sans-serif;
-$font-secondary: 'rubik', serif;
+
+@font-face {
+   font-family: 'Open Sans Condensed';
+   src: url('../fonts/OpenSansCondensed-Regular.woff2') format('woff2'),
+       url('../fonts/OpenSansCondensed-Regular.woff') format('woff'),
+       url('../fonts/OpenSansCondensed-Regular.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Open Sans';
+   src: url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
+       url('../fonts/OpenSans-SemiBold.woff') format('woff'),
+       url('../fonts/OpenSans-SemiBold.ttf') format('truetype');
+   font-weight: 600;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Open Sans';
+   src: url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+       url('../fonts/OpenSans-Regular.woff') format('woff'),
+       url('../fonts/OpenSans-Regular.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Open Sans Condensed';
+   src: url('../fonts/OpenSansCondensed-SemiBoldItalic.woff2') format('woff2'),
+       url('../fonts/OpenSansCondensed-SemiBoldItalic.woff') format('woff'),
+       url('../fonts/OpenSansCondensed-SemiBoldItalic.ttf') format('truetype');
+   font-weight: 600;
+   font-style: italic;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Open Sans';
+   src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+       url('../fonts/OpenSans-Bold.woff') format('woff'),
+       url('../fonts/OpenSans-Bold.ttf') format('truetype');
+   font-weight: 700;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'Open Sans Condensed';
+   src: url('../fonts/OpenSansCondensed-SemiBold.woff2') format('woff2'),
+       url('../fonts/OpenSansCondensed-SemiBold.woff') format('woff'),
+       url('../fonts/OpenSansCondensed-SemiBold.ttf') format('truetype');
+   font-weight: 600;
+   font-style: normal;
+   font-display: swap;
+}
+
+$font-primary: 'Open Sans', sans-serif;
+$font-secondary: 'Open Sans Condensed', sans-serif; 
 
 // Spacing
-$line-height-normal: 1.50;
-$line-height-tight: 1.10;
+$line-height-normal: 1.60;
+$line-height-tight: 1.28;
 $line-height-loose: 1.70;
 $letter-spacing: 0.125em; //2px
 

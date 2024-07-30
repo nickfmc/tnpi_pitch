@@ -5,20 +5,66 @@
 /* ==========================================================================
    VARIABLES
    ========================================================================== */
+.u-blue-dark {
+  color: #026CB6 !important;
+}
+
+@font-face {
+  font-family: "Open Sans Condensed";
+  src: url("../fonts/OpenSansCondensed-Regular.woff2") format("woff2"), url("../fonts/OpenSansCondensed-Regular.woff") format("woff"), url("../fonts/OpenSansCondensed-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-SemiBold.woff2") format("woff2"), url("../fonts/OpenSans-SemiBold.woff") format("woff"), url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2"), url("../fonts/OpenSans-Regular.woff") format("woff"), url("../fonts/OpenSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans Condensed";
+  src: url("../fonts/OpenSansCondensed-SemiBoldItalic.woff2") format("woff2"), url("../fonts/OpenSansCondensed-SemiBoldItalic.woff") format("woff"), url("../fonts/OpenSansCondensed-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Bold.woff2") format("woff2"), url("../fonts/OpenSans-Bold.woff") format("woff"), url("../fonts/OpenSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans Condensed";
+  src: url("../fonts/OpenSansCondensed-SemiBold.woff2") format("woff2"), url("../fonts/OpenSansCondensed-SemiBold.woff") format("woff"), url("../fonts/OpenSansCondensed-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 /* ==========================================================================
    WRAPPERS
    ========================================================================== */
 .o-wrapper {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1180px;
+  max-width: 1440px;
   width: 100%;
 }
 
 .o-wrapper-wide {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1180px;
+  max-width: 1440px;
   width: 100%;
 }
 
@@ -27,6 +73,10 @@
   margin-right: auto;
   max-width: 760px;
   width: 100%;
+}
+
+.o-blue-wrapper {
+  color: #fff;
 }
 
 /* ==========================================================================
@@ -3143,8 +3193,8 @@ html {
 
 body {
   color: #000;
-  font-family: "rubik", sans-serif;
-  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -3156,7 +3206,7 @@ blockquote {
   padding: 1em 1.5em;
   margin: 30px 0;
   font-size: clamp(1.13rem, 0.6vw + 0.98rem, 1.5rem);
-  color: #323232;
+  color: #28317B;
 }
 blockquote::before {
   content: "“";
@@ -3164,7 +3214,7 @@ blockquote::before {
   top: 0;
   left: 10px;
   z-index: -1;
-  color: #EAEAEA;
+  color: #BABCBE;
   font-size: 190px;
   line-height: 1;
 }
@@ -3195,11 +3245,28 @@ blockquote::before {
    HEADINGS
    ========================================================================== */
 h1, .h1-style, h2, .h2-style, h3, .h3-style, h4, .h4-style, h5, .h5-style, h6, .h6-style {
-  color: #323232;
-  font-family: "rubik", serif;
+  color: #28317B;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  line-height: 1.1;
-  margin: 0 0 1rem 0;
+  line-height: 1.28;
+  margin: 0 0 22px 0;
+}
+h1.is-style-u-eyebrow-heading, .h1-style.is-style-u-eyebrow-heading, h2.is-style-u-eyebrow-heading, .h2-style.is-style-u-eyebrow-heading, h3.is-style-u-eyebrow-heading, .h3-style.is-style-u-eyebrow-heading, h4.is-style-u-eyebrow-heading, .h4-style.is-style-u-eyebrow-heading, h5.is-style-u-eyebrow-heading, .h5-style.is-style-u-eyebrow-heading, h6.is-style-u-eyebrow-heading, .h6-style.is-style-u-eyebrow-heading {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 0.2vw + 1.2rem, 1.38rem) !important;
+  color: #739DD2;
+  margin-bottom: 20px;
+}
+h1.is-style-u-eyebrow-heading.mb-0, .h1-style.is-style-u-eyebrow-heading.mb-0, h2.is-style-u-eyebrow-heading.mb-0, .h2-style.is-style-u-eyebrow-heading.mb-0, h3.is-style-u-eyebrow-heading.mb-0, .h3-style.is-style-u-eyebrow-heading.mb-0, h4.is-style-u-eyebrow-heading.mb-0, .h4-style.is-style-u-eyebrow-heading.mb-0, h5.is-style-u-eyebrow-heading.mb-0, .h5-style.is-style-u-eyebrow-heading.mb-0, h6.is-style-u-eyebrow-heading.mb-0, .h6-style.is-style-u-eyebrow-heading.mb-0 {
+  margin-bottom: 0;
+}
+h1.is-style-u-eyebrow-heading-white, .h1-style.is-style-u-eyebrow-heading-white, h2.is-style-u-eyebrow-heading-white, .h2-style.is-style-u-eyebrow-heading-white, h3.is-style-u-eyebrow-heading-white, .h3-style.is-style-u-eyebrow-heading-white, h4.is-style-u-eyebrow-heading-white, .h4-style.is-style-u-eyebrow-heading-white, h5.is-style-u-eyebrow-heading-white, .h5-style.is-style-u-eyebrow-heading-white, h6.is-style-u-eyebrow-heading-white, .h6-style.is-style-u-eyebrow-heading-white {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 0.2vw + 1.2rem, 1.38rem) !important;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 h1 a, .h1-style a, h2 a, .h2-style a, h3 a, .h3-style a, h4 a, .h4-style a, h5 a, .h5-style a, h6 a, .h6-style a {
@@ -3208,22 +3275,31 @@ h1 a, .h1-style a, h2 a, .h2-style a, h3 a, .h3-style a, h4 a, .h4-style a, h5 a
 
 h1, .h1-style {
   font-size: clamp(2.81rem, 1.5vw + 2.44rem, 3.75rem);
+  font-weight: 700;
 }
 
 h2, .h2-style {
-  font-size: clamp(1.88rem, 1vw + 1.63rem, 2.5rem);
+  font-size: clamp(2.13rem, 1.4vw + 1.78rem, 3rem);
+  font-weight: 600;
+  margin-bottom: 60px;
 }
 
 h3, .h3-style {
-  font-size: clamp(1.75rem, 0.8vw + 1.55rem, 2.25rem);
+  font-size: clamp(2.13rem, 1.4vw + 1.78rem, 3rem);
+  font-weight: 600;
+  margin-bottom: 60px;
 }
 
 h4, .h4-style {
-  font-size: clamp(1.38rem, 0.8vw + 1.18rem, 1.88rem);
+  font-size: clamp(1.13rem, 0vw + 1.13rem, 1.13rem);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 h5, .h5-style {
-  font-size: clamp(1.25rem, 0.2vw + 1.2rem, 1.38rem);
+  font-size: clamp(1.13rem, 0vw + 1.13rem, 1.13rem);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 h6, .h6-style {
@@ -3337,7 +3413,7 @@ form input::placeholder {
    A TAG (links) STYLES
    ========================================================================== */
 a {
-  color: #460f5f;
+  color: currentColor;
   text-decoration: none;
   cursor: pointer;
   -webkit-transition: all 250ms ease;
@@ -3345,7 +3421,8 @@ a {
 }
 
 a:hover {
-  color: #323232;
+  -webkit-filter: brightness(1.4);
+          filter: brightness(1.4);
 }
 
 a, a:active, a:hover, a:visited {
@@ -3356,13 +3433,18 @@ a[href^="mailto:"] {
   overflow-wrap: break-word;
 }
 
+.editor-content a {
+  text-decoration: underline;
+}
+
 /* ==========================================================================
    P TAGS
    ========================================================================== */
 p {
-  line-height: 1.5;
-  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  margin: 0 0 34px 0;
   padding: 0;
+  font-size: 18px;
 }
 
 /* ==========================================================================
@@ -3375,7 +3457,7 @@ p {
 }
 
 .c-blk-btn a, .c-btn-primary a, .wp-block-button.is-style-standard a.wp-block-button__link, .wp-block-button.is-style-standard .wp-block-button__link {
-  background-color: #ACACAC;
+  background-color: #717073;
   border: none;
   color: #FFF;
   display: inline-block;
@@ -3388,7 +3470,7 @@ p {
   white-space: nowrap;
 }
 .c-blk-btn a:hover, .c-btn-primary a:hover, .wp-block-button.is-style-standard a.wp-block-button__link:hover, .wp-block-button.is-style-standard .wp-block-button__link:hover {
-  background-color: #EAEAEA;
+  background-color: #BABCBE;
   color: #000;
 }
 
@@ -3396,7 +3478,7 @@ p {
    COLOURS
    ========================================================================== */
 .u-bg-grey {
-  background-color: #ACACAC;
+  background-color: #717073;
 }
 
 /* ==========================================================================
@@ -6264,6 +6346,43 @@ p {
   text-align: center;
 }
 
+.u-responsive-square-container {
+  width: 100%; /* Make the container responsive */
+  max-width: 400px; /* Set the maximum width of the container */
+  height: 0;
+  padding-bottom: 100%; /* Maintain a square aspect ratio */
+  position: relative; /* Position relative to contain the image */
+  overflow: hidden; /* Hide any overflow */
+}
+
+.u-responsive-square-container img {
+  width: 100%; /* Ensure the image width is 100% of the container */
+  height: auto; /* Maintain the aspect ratio */
+  -o-object-fit: cover;
+     object-fit: cover; /* Cover the entire container */
+  position: absolute; /* Position absolute to cover the container */
+  top: 0;
+  left: 0;
+}
+
+.u-ttu {
+  text-transform: uppercase;
+}
+
+.u-outside-right {
+  position: relative;
+}
+.u-outside-right::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 1px;
+  background-color: #026CB6;
+  position: absolute;
+  right: -10px;
+  top: 0;
+}
+
 .u-aspect-16x9 {
   padding-bottom: 56.25%; /* (9 / 16 = 0.5625) */
 }
@@ -6295,7 +6414,7 @@ p {
 }
 
 .is-style-secondaryfont {
-  font-family: "rubik", serif;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
 .wp-block[data-align=full] .wp-block-group .wp-block {
@@ -6333,7 +6452,7 @@ p {
   body .wp-block-column {
     -ms-flex-preferred-size: 100% !important;
         flex-basis: 100% !important;
-    margin: 0 0 25px 0 !important;
+    margin: 0 0 30px 0 !important;
   }
 }
 
@@ -6348,7 +6467,7 @@ p {
     -ms-flex-preferred-size: 100% !important;
         flex-basis: 100% !important;
     max-width: 100%;
-    margin: 0 0 25px 0 !important;
+    margin: 0 0 30px 0 !important;
   }
 }
 
@@ -6365,7 +6484,7 @@ p {
 .wp-block[data-type^=toolset]:not([data-align^=full]),
 div:not([class]) > .block-editor-block-list__layout > .wp-block:not([data-align^=full]),
 .tb-container > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block:not([data-align^=full]) {
-  max-width: 1180px !important;
+  max-width: 1440px !important;
   z-index: 10;
 }
 

@@ -10,13 +10,13 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'c-button-' . $block['id'];
+$id = 'c-img-banner-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'c-blk-btn';
+$className = 'c-img-banner';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
@@ -30,18 +30,15 @@ if( $is_preview ) {
 
 ?>
 
-<?php 
-$link = get_field('button_link_full');
-if( $link ): 
-    $link_url = $link['url'];
-    $link_title = $link['title'];
-    $link_target = $link['target'] ? $link['target'] : '_self';
-    ?>
-<?php endif; ?>
  
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>  <?php if( get_field('dark_button') ) { echo 'c-blk-btn--dark'; }?> <?php if( get_field('large_button') ) { echo 'c-blk-btn--large'; }?> <?php if( get_field('text_button_link_only') ) { echo 'c-btn-text-only'; }?>">
+<div id="<?php echo esc_attr($id); ?>" class="alignfull <?php echo esc_attr($className); ?>  ">
 
-
-<a target="<?php echo $link_target ;?>" href="<?php echo $link_url ;?>"><?php echo $link_title; ?></a>
+<?php
+$image = get_field('banner_image');
+$size = 'full';
+if($image){
+ echo wp_get_attachment_image($image, $size);
+}
+?>
 
 </div>

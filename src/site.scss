@@ -23,7 +23,7 @@
 // ++ ELEMENTS (BASE) +++++++++++++++++++++++++++++++++
 @import "./scss/elements/_normalize.scss";
 @import "./scss/elements/_normalize-extras.scss";
-@import "./scss/elements/_html-body.scss";
+@import "./scss/elements/_html-body.scss"; 
 @import "./scss/elements/_blockquote.scss";
 @import "./scss/elements/_headings.scss";
 @import "./scss/elements/_hr.scss";
@@ -44,6 +44,8 @@
 @import "./scss/components/_footer-widgets.scss";
 @import "./scss/components/_footer.scss";
 @import "./scss/components/_header.scss";
+@import "./scss/components/_breadcrumbs.scss";
+@import "./scss/components/_small-blocks.scss";
 @import "./scss/components/_logo-main.scss";
 @import "./scss/components/_nav-main.scss";
 @import "./scss/components/_nav-modal.scss";

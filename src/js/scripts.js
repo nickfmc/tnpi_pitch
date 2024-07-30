@@ -24,18 +24,137 @@
 //   }
 // });
 // headroom.init();
+document.addEventListener('DOMContentLoaded', function() {
+  const imgBanner = document.querySelector('.c-img-banner');
+  const img = imgBanner.querySelector('img');
+
+  img.addEventListener('load', function() {
+      imgBanner.classList.add('loaded');
+  });
+
+  // If the image is cached, the load event might not fire
+  if (img.complete) {
+      imgBanner.classList.add('loaded');
+  }
+});
+
+
+// Sticky header
+document.addEventListener('DOMContentLoaded', function() {
+  const headerMain = document.querySelector('.c-header-main');
+  const headerSpacer = document.querySelector('.c-header-spacer');
+  const stickyOffset = 35;
+
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > stickyOffset) {
+          headerMain.classList.add('sticky');
+          headerSpacer.classList.add('sticky');
+      } else {
+          headerMain.classList.remove('sticky');
+          headerSpacer.classList.remove('sticky');
+      }
+  });
+});
+
+// Search Popup
+document.addEventListener('DOMContentLoaded', function() {
+  const searchButton = document.getElementById('search-button');
+  const searchPopup = document.getElementById('search-popup');
+  const closeSearch = document.getElementById('close-search');
+  const searchField = document.getElementById('search-field');
+
+  searchButton.addEventListener('click', function() {
+      const isExpanded = searchButton.getAttribute('aria-expanded') === 'true';
+      searchButton.setAttribute('aria-expanded', !isExpanded);
+      searchPopup.setAttribute('aria-hidden', isExpanded);
+      if (!isExpanded) {
+          searchField.focus();
+      }
+  });
+
+  closeSearch.addEventListener('click', function() {
+      searchButton.setAttribute('aria-expanded', 'false');
+      searchPopup.setAttribute('aria-hidden', 'true');
+      searchButton.focus();
+  });
+});
+
 
 // *********************** END CUSTOM JS *********************************
+// a hover + click dropdown menu
+document.addEventListener('DOMContentLoaded', function() {
+    const menuButtons = document.querySelectorAll('.menu-item-has-children > button');
+
+    menuButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !expanded);
+            const submenu = this.nextElementSibling;
+            if (submenu && !expanded) {
+                submenu.querySelector('a').focus();
+            }
+        });
+
+        button.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+
+        button.addEventListener('mouseover', function() {
+            menuButtons.forEach(btn => {
+                if (btn !== this) {
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        const isClickInside = event.target.closest('.menu-item-has-children');
+        if (!isClickInside) {
+            menuButtons.forEach(button => {
+                button.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            const activeElement = document.activeElement;
+            const submenu = activeElement.closest('.sub-menu');
+            if (submenu) {
+                const focusableElements = submenu.querySelectorAll('a, button, input, [tabindex]:not([tabindex="-1"])');
+                const lastFocusableElement = focusableElements[focusableElements.length - 1];
+                if (activeElement === lastFocusableElement) {
+                    const parentButton = submenu.previousElementSibling;
+                    if (parentButton && parentButton.tagName === 'BUTTON') {
+                        parentButton.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            }
+        }
+    });
+});
+
 
 
 
 document.getElementById('open-modal-nav').addEventListener('click', function(){
-  document.querySelector('html').classList.add('has-modal-nav-open');
+    document.querySelector('html').classList.add('has-modal-nav-open');
 });
 
 document.getElementById('close-modal-nav').addEventListener('click', function(){
-  document.querySelector('html').classList.remove('has-modal-nav-open');
+    document.querySelector('html').classList.remove('has-modal-nav-open');
 });
+
+// Close modal nav when clicking outside of it when it already open
+document.addEventListener('click', function(e){
+    // Your existing code here
+});
+
+
 
 // Close modal nav when clicking outside of it when it already open
   document.addEventListener('click', function(e){

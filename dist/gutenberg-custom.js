@@ -63,3 +63,33 @@ wp.domReady( () => {
   // toolset customization
   // wp.blocks.unregisterBlockType( 'toolset-blocks/button' );
 } );
+
+
+wp.domReady(function() {
+  wp.blocks.registerBlockStyle('generateblocks/headline', {
+    name: 'u-eyebrow-heading',
+    label: 'Eyebrow Blue Heading',
+  });
+});
+
+wp.domReady(function() {
+  wp.blocks.registerBlockStyle('generateblocks/headline', {
+    name: 'u-eyebrow-heading-white',
+    label: 'Eyebrow White Heading',
+  });
+});
+
+wp.domReady(function() {
+  wp.blocks.registerBlockStyle('core/heading', {
+    name: 'u-outline-font',
+    label: 'Outline',
+  });
+});
+
+wp.domReady(function() {
+  wp.blocks.registerBlockStyle('core/list', {
+    name: 'u-centered-list',
+    label: 'Centred List',
+  });
+});
+
