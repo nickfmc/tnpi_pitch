@@ -26,15 +26,18 @@
 // headroom.init();
 document.addEventListener('DOMContentLoaded', function() {
   const imgBanner = document.querySelector('.c-img-banner');
-  const img = imgBanner.querySelector('img');
+  
+  if (imgBanner) { // Check if the element exists
+    const img = imgBanner.querySelector('img');
 
-  img.addEventListener('load', function() {
-      imgBanner.classList.add('loaded');
-  });
+    img.addEventListener('load', function() {
+        imgBanner.classList.add('loaded');
+    });
 
-  // If the image is cached, the load event might not fire
-  if (img.complete) {
-      imgBanner.classList.add('loaded');
+    // If the image is cached, the load event might not fire
+    if (img.complete) {
+        imgBanner.classList.add('loaded');
+    }
   }
 });
 
@@ -56,34 +59,126 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Search Popup
+// *********************** START CUSTOM JS *********************************
+
+// Accessible Search Popup
 document.addEventListener('DOMContentLoaded', function() {
-  const searchButton = document.getElementById('search-button');
-  const searchPopup = document.getElementById('search-popup');
-  const closeSearch = document.getElementById('close-search');
-  const searchField = document.getElementById('search-field');
+    const searchButton = document.getElementById('search-button');
+    const searchPopup = document.getElementById('search-popup');
+    const searchField = document.getElementById('s'); // Corrected ID for the search field
+    const closeSearchPopupButton = document.getElementById('close-search-popup');
 
-  searchButton.addEventListener('click', function() {
-      const isExpanded = searchButton.getAttribute('aria-expanded') === 'true';
-      searchButton.setAttribute('aria-expanded', !isExpanded);
-      searchPopup.setAttribute('aria-hidden', isExpanded);
-      if (!isExpanded) {
-          searchField.focus();
-      }
-  });
+    if (!searchButton || !searchPopup || !searchField || !closeSearchPopupButton) {
+        console.error('One or more elements are not found:', {
+            searchButton,
+            searchPopup,
+            searchField,
+            closeSearchPopupButton
+        });
+        return;
+    }
 
-  closeSearch.addEventListener('click', function() {
-      searchButton.setAttribute('aria-expanded', 'false');
-      searchPopup.setAttribute('aria-hidden', 'true');
-      searchButton.focus();
-  });
+    window.closeSearchPopup = function() {
+        searchButton.setAttribute('aria-expanded', 'false');
+        searchPopup.setAttribute('aria-hidden', 'true');
+        searchPopup.setAttribute('inert', '');
+        searchButton.focus();
+        releaseFocus();
+    };
+
+    searchButton.addEventListener('click', function() {
+        const isExpanded = searchButton.getAttribute('aria-expanded') === 'true';
+        searchButton.setAttribute('aria-expanded', !isExpanded);
+        searchPopup.setAttribute('aria-hidden', isExpanded);
+        searchPopup.removeAttribute('inert');
+        if (!isExpanded) {
+            searchField.focus();
+            trapFocus(searchPopup);
+        } else {
+            window.closeSearchPopup();
+        }
+    });
+
+    closeSearchPopupButton.addEventListener('click', function() {
+        window.closeSearchPopup();
+    });
+
+    function trapFocus(element) {
+        const focusableElements = element.querySelectorAll('a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])');
+        
+        if (focusableElements.length === 0) {
+            console.error('No focusable elements found within the element.');
+            return;
+        }
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (!firstElement || !lastElement) {
+            console.error('First or last focusable element is null.');
+            return;
+        }
+
+        function handleFocus(event) {
+            if (event.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                if (document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+
+        element.addEventListener('keydown', handleFocus);
+        element.dataset.trapFocus = 'true';
+    }
+
+    function releaseFocus() {
+        const element = document.querySelector('[data-trap-focus="true"]');
+        if (element) {
+            element.removeEventListener('keydown', handleFocus);
+            delete element.dataset.trapFocus;
+        }
+    }
+
+    function handleFocus(event) {
+        const element = document.querySelector('[data-trap-focus="true"]');
+        if (!element) return;
+
+        const focusableElements = element.querySelectorAll('a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey) {
+            if (document.activeElement === firstElement) {
+                event.preventDefault();
+                lastElement.focus();
+            }
+        } else {
+            if (document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }
+        }
+    }
 });
+
+
+// END Accessible Search Popup
+
+// *********************** END CUSTOM JS *********************************
 
 
 // *********************** END CUSTOM JS *********************************
 // a hover + click dropdown menu
 document.addEventListener('DOMContentLoaded', function() {
     const menuButtons = document.querySelectorAll('.menu-item-has-children > button');
+    const navBg = document.querySelector('.c-nav-bg');
+    const menuItems = document.querySelectorAll('li.menu-item-has-children');
 
     menuButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -92,6 +187,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const submenu = this.nextElementSibling;
             if (submenu && !expanded) {
                 submenu.querySelector('a').focus();
+            }
+            // Toggle .c-nav-bg visibility
+            if (!expanded) {
+                navBg.classList.add('visible');
+            } else {
+                navBg.classList.remove('visible');
             }
         });
 
@@ -111,12 +212,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    menuItems.forEach(item => {
+        item.addEventListener('mouseover', function() {
+            navBg.classList.add('visible');
+        });
+
+        item.addEventListener('mouseout', function() {
+            // Check if any menu item is still expanded
+            const anyExpanded = Array.from(menuButtons).some(button => button.getAttribute('aria-expanded') === 'true');
+            if (!anyExpanded) {
+                navBg.classList.remove('visible');
+            }
+        });
+    });
+
     document.addEventListener('click', function(event) {
         const isClickInside = event.target.closest('.menu-item-has-children');
         if (!isClickInside) {
             menuButtons.forEach(button => {
                 button.setAttribute('aria-expanded', 'false');
             });
+            navBg.classList.remove('visible');
         }
     });
 
@@ -137,8 +253,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
 
 
 document.getElementById('open-modal-nav').addEventListener('click', function(){

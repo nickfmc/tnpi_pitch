@@ -41,6 +41,11 @@
 					"name": "Light blue"
 				},
 				{
+					"slug": "lightest-blue",
+					"color": "#F3F4F8",
+					"name": "Lightest blue"
+				},
+				{
 					"slug": "med-blue",
 					"color": "#026CB6",
 					"name": "Medium blue"

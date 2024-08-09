@@ -3,14 +3,28 @@
    ========================================================================== */
 
 .c-page-footer {
-background-color: $color-blue-dark;
+background-color: $color-blue-darkest;
+
 }
 
-.c-page-footer-upper {
-  background-color: $color-gray-light;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 100px;
+.c-page-footer-main {
+  background-color: $color-blue-darkest;
+
+
+  > div {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    height: 100%; 
+    border-right: 1px solid $color-blue-med;
+    border-left: 1px solid $color-blue-med;
+    color: #fff;
+    .cell:last-of-type {
+      padding-left: 30px;
+      border-left: 1px solid $color-blue-med;
+    }
+  }
 }
 
 .c-page-footer-lower {
@@ -19,15 +33,26 @@ background-color: $color-blue-dark;
   padding-left: 30px;
   padding-right: 30px;
   font-size: 15px;
+  border-top: 1px solid $color-blue-med;
   > div {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    min-height: 60px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 
+.c-copywrite {
+  font-size: 18px;
+}
+
 .c-page-footer-topper {
- 
+  border-top: 1px solid $color-blue-med;
   border-bottom: 1px solid $color-blue-med;
+  transform: translateZ(1px);
   >div {
     height: 60px;
     display: flex;
@@ -59,7 +84,7 @@ background-color: $color-blue-dark;
     }
     
   }
-  h4 {
+  p {
     margin-bottom: 0;
   }
 }
@@ -78,3 +103,22 @@ background-color: $color-blue-dark;
   border-top: 1px solid $color-blue-med;
   border-bottom: 1px solid $color-blue-med;
 }
+
+.c-footer-nav-menu {
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  align-items: center;
+  min-height: 60px;
+    > li {
+      margin-right: 50px;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        color: #fff;
+        text-decoration: underline;
+        font-size: 18px;
+      }
+    }
+  }

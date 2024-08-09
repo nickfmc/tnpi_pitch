@@ -18,3 +18,15 @@ body {
   -webkit-overflow-scrolling: touch;
   // padding-top: $page-header-height // match height of header used by headroom.js (if using)
 }
+
+$focus-color: #F26531; // Example focus color
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1px solid $focus-color;
+  outline-offset: 0px;
+  
+}

@@ -41,7 +41,7 @@ $paddingHorizontal: 30px;
 }
 
 .editor-content > .alignfull {
-  transform: translateX(calc(0px - #{$paddingHorizontal}));
+  transform: translateX(calc(0px - #{$paddingHorizontal})) translateZ(1px);
   width: calc(100% + 2 * #{$paddingHorizontal});
   max-width: 100vw;
   margin-left: auto;
@@ -74,6 +74,10 @@ $paddingHorizontal: 30px;
   > .gb-container {
     padding-left: 30px;
     padding-right: 30px;
+    &.u-nopad {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
  }
 
@@ -161,6 +165,9 @@ $paddingHorizontal: 30px;
 justify-content: flex-start;
   display: flex;
   flex-direction: column;
+  &.mt-0 {
+    margin-top: 0 !important;
+  }
 }
 
 .editor-content ul.is-style-u-centered-list {

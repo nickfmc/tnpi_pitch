@@ -1,9 +1,9 @@
   <footer class="o-section c-page-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
     <div class="c-page-footer-topper">
       <div class="o-wrapper-wide">
-        <h4 class="is-style-u-eyebrow-heading u-ttu">
+        <p class="is-style-u-eyebrow-heading u-ttu">
             TNPI Emergency Line: <a href="tel:18003610608" aria-label="Call TNPI Emergency Line at 1-800-361-0608">1-800-361-0608</a>
-        </h4>
+        </p>
       </div>
     </div>
     <div class="c-page-footer-spacer"><div class="o-wrapper-wide"></div></div>
@@ -16,29 +16,20 @@
     </div>
 
 
-    <div class="c-page-footer-upper">
+    <div class="c-page-footer-main">
       <div class="o-wrapper-wide">
       <div class="grid-x">
-          <div class="cell  medium-3">
+          <div class="cell  medium-6">
             <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
               <?php dynamic_sidebar( 'footer-1' ); ?>
             <?php endif; ?>
           </div>
-          <div class="cell  medium-3">
+          <div class="cell  medium-6">
           <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
             <?php dynamic_sidebar( 'footer-2' ); ?>
           <?php endif; ?>
           </div>
-          <div class="cell  medium-3">
-          <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
-            <?php dynamic_sidebar( 'footer-3' ); ?>
-          <?php endif; ?>
-          </div>
-          <div class="cell  medium-3">
-          <?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
-            <?php dynamic_sidebar( 'footer-4' ); ?>
-          <?php endif; ?>
-          </div>
+         
         </div>
         <!-- /.c-footer-widgets -->
         

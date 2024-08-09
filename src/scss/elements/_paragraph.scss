@@ -7,5 +7,24 @@ p {
   margin: 0 0 34px 0;
   padding: 0;
   font-size: 18px;
+
+  &.is-style-u-eyebrow-heading {
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-size: clamped(20px, 22px) !important;
+    color: $color-blue-light;
+    margin-bottom: 20px;
+    &.mb-0 {
+      margin-bottom: 0;
+    }
+  }
+  &.is-style-u-eyebrow-heading-white {
+    font-family: $font-secondary;
+    font-weight: 600;
+    font-size: clamped(20px, 22px) !important;
+    color: #fff;
+    margin-bottom: 20px;
+  }
 }
+
 

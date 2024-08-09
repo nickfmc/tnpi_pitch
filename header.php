@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -30,6 +30,7 @@
     </div>
     <div class="c-header-spacer"></div>
   <div class="c-header-main">
+    <div class="c-nav-bg"></div>
     <div class="o-wrapper-wide  u-relative">
         <?php get_template_part( 'template-part/header/logo' ); ?>
         <?php get_template_part( 'template-part/navigation/nav-main' ); ?>
