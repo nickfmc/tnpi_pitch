@@ -8,8 +8,8 @@ a {
   cursor: pointer;
   transition: $transition-ease;
 }
-a:hover { 
-  filter: brightness(1.4); 
+.editor-content a:hover { 
+  filter: brightness(1.1); 
 }
 a, a:active, a:hover, a:visited { 
   outline: medium none; 
@@ -17,6 +17,9 @@ a, a:active, a:hover, a:visited {
 a[href^="mailto:"] {
   overflow-wrap: break-word;
 }
-.editor-content a {
+.editor-content a:not(.gb-button) {
   text-decoration: underline;
+  &:hover {
+    text-decoration-color: $color-orange-dark;
+  }
 }

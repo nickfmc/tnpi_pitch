@@ -5,7 +5,6 @@
 
 
    .c-page-header {
-
   height: 105px;  
   position: absolute;
   top: 0;
@@ -22,7 +21,7 @@
 
 .c-page-header-upper {
   height: 35px;
-  background-color: $color-blue-darkest;
+  background-color: #fff;
   border-bottom: 1px solid $color-blue-med;
   padding-left: 30px;
   padding-right: 30px;
@@ -34,20 +33,49 @@
     border-right: 1px solid $color-blue-med;
   }
 }
+
+.is-dark-page {
+  .c-page-header-upper {
+    background-color: $color-blue-darkest;
+  border-bottom: 1px solid $color-blue-med;
+  }
+}
+
+
 .c-page-header-upper-inner  {
   text-align: right;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .c-page-header-upper-inner span {
-  color: $color-blue-light;
+  color: $color-blue-dark;
   font-family: $font-secondary;
+  letter-spacing: 1px;
   font-size: 17px;
   font-weight: 600;
   text-transform: uppercase;
+  margin-top: -3px;
+  a {
+    color: $color-blue-dark;
+    font-family: $font-secondary;
+    letter-spacing: 1px;
+    font-size: 17px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.is-dark-page .c-page-header-upper-inner span {
+  color: $color-blue-light;
   a {
     color: $color-blue-light;
-    font-family: $font-secondary;
-    font-size: 17px;
+    &:hover {
+      color: #fff;
+    }
   }
 }
 
@@ -61,7 +89,7 @@
   padding-left: 30px;
   padding-right: 30px;
   background-color: $color-blue-darkest;
-  height: 60px;
+  height: 62px;
   border-bottom: 1px solid $color-blue-med;
   border-top: 1px solid $color-blue-med; 
   > .o-wrapper-wide {

@@ -23,54 +23,68 @@
                 {
 					"slug": "dark-grey",
 					"color": "#455560",
-					"name": "Dark grey"
+					"name": "Dark grey #455560"
 				},
 				{
 					"slug": "medium-grey",
 					"color": "#717073",
-					"name": "Medium grey"
+					"name": "Medium grey #717073"
 				},
 				{
 					"slug": "light-grey",
 					"color": "#BABCBE",
-					"name": "Light grey"
+					"name": "Light grey #BABCBE"
 				},
 				{
 					"slug": "light-blue",
 					"color": "#739DD2",
-					"name": "Light blue"
+					"name": "Light blue #739DD2"
 				},
 				{
 					"slug": "lightest-blue",
 					"color": "#F3F4F8",
-					"name": "Lightest blue"
+					"name": "Lightest blue #F3F4F8"
 				},
 				{
 					"slug": "med-blue",
 					"color": "#026CB6",
-					"name": "Medium blue"
+					"name": "Medium blue #026CB6"
 				},
 				{
 					"slug": "dark-blue",
 					"color": "#1C2674",
-					"name": "Darkest blue"
+					"name": "Darkest blue #1C2674"
 				},
 				{
 					"slug": "darkish-blue",
 					"color": "#28317B",
-					"name": "Dark blue"
+					"name": "Dark blue #28317B"
 				},
 				{
 					"slug": "dark-green",
 					"color": "#006B6E",
-					"name": "Dark green"
+					"name": "Dark green #006B6E"
 				},
 				{
 					"slug": "light-green",
 					"color": "#A0CF67",
-					"name": "Light green"
+					"name": "Light green #A0CF67"
 				},
-								
+				{
+					"slug": "dark-orange",
+					"color": "#F26531",
+					"name": "Dark Orange #F26531"
+				},
+				{
+					"slug": "light-orange",
+					"color": "#F68A33",
+					"name": "TNPI Orange #F68A33"
+				},
+				{
+					"slug": "yellow",
+					"color": "#FDB913",
+					"name": "TNPI Yellow #FDB913"
+				},				
 				{
 					"slug": "transparent",
 					"color": "transparent",

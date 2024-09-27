@@ -1,5 +1,5 @@
 
-.error404 .editor-content {
+.error404 .editor-content, .search .editor-content{
   padding-top: 210px;
     display: flex;
     padding-bottom: 100px;
@@ -23,12 +23,12 @@
   }
   }
   
-  .c-404-content {
+  .c-404-content, .c-search-content {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  .c-404-inner-content {
+  .c-404-inner-content, .c-search-inner-content {
     padding-top: 30px;
     display: flex;
     justify-content: flex-end;

@@ -87,6 +87,9 @@ background-color: $color-blue-darkest;
   p {
     margin-bottom: 0;
   }
+  a:hover {
+    color: #fff;
+  }
 }
 
 .c-page-footer-spacer {
@@ -119,6 +122,9 @@ background-color: $color-blue-darkest;
         color: #fff;
         text-decoration: underline;
         font-size: 18px;
+        &:hover {
+          text-decoration-color: $color-orange-dark;
+        }
       }
     }
   }

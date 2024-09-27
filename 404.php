@@ -9,19 +9,13 @@
         <h1 class="h1-style" role="heading" aria-level="1">Page Not Found</h1>
 
         <div id="<?php echo esc_attr($id); ?>" class="c-breadcrumbs-Dark">
-
-
-
-
-<?php
-    // Display Yoast SEO breadcrumbs
-    if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
-      }
-?>
-
-
-</div>
+        <?php
+            // Display Yoast SEO breadcrumbs
+            if ( function_exists('yoast_breadcrumb') ) {
+                yoast_breadcrumb( '<nav aria-label="breadcrumbs" id="breadcrumbs">','</nav>' );
+              }
+        ?>
+        </div>
 
 
 

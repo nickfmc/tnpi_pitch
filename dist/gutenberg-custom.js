@@ -21,6 +21,15 @@ wp.blocks.registerBlockStyle(
   }
 );
 
+wp.blocks.registerBlockStyle(
+  'core/image',
+  {
+    name: 'circleimg',
+    label: 'Circle Image',
+    
+  }
+);
+
 
 wp.blocks.registerBlockStyle(
   'core/columns',
@@ -69,6 +78,13 @@ wp.domReady(function() {
   wp.blocks.registerBlockStyle('generateblocks/headline', {
     name: 'u-eyebrow-heading',
     label: 'Eyebrow Blue Heading',
+  });
+});
+
+wp.domReady(function() {
+  wp.blocks.registerBlockStyle('generateblocks/headline', {
+    name: 'u-jumbo-heading',
+    label: 'Jumbo Heading',
   });
 });
 

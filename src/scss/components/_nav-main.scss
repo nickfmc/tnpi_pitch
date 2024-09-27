@@ -12,7 +12,7 @@
   opacity: 0;
   position: absolute;
   top: 0;
-  right: 140px;
+  right: 110px;
   background: $color-blue-dark; 
   // padding: 7px 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -21,32 +21,51 @@
   transition: all 0.5s ease;
   max-width: 0;
   overflow: hidden;
+  height: 100%;
 
   
  .c-search-form {
   > div {
+    height: 100%;
     max-width: 100% !important;
     width: 900px;
-    align-items: stretch !important;
+    align-items: center !important;
   padding: 7px 50px 7px 10px;
+  input {
+    background-color: $color-blue-dark; 
+    border: none;
+    color: #fff;
+    &::placeholder {
+      color: $color-blue-light;
+    }
+  }
 
   }
  }
- .close-button {
+ .c-search-close-button {
   position: absolute;
+  width: 32px;
   color: #fff;
   top: 8px;
-  right: 12px;
+  right: 6px;
   cursor: pointer;
   font-size: 33px;
  }
  .search-submit {
   color: #fff;
-  border: 1px solid $color-blue-light;
+  transition: $transition-ease;
+  border: 1px solid $color-blue-med;
   background-color: $color-blue-dark;
+  font-weight: 600;
+  font-size: 17px;
   padding: 4px 18px;
   text-transform: uppercase;
   font-family: $font-secondary;
+  letter-spacing: 1px;
+  &:hover {
+    background-color: #fff;
+    color: $color-blue-dark;
+  }
   
  }
  a:focus,
@@ -68,23 +87,44 @@ select:focus {
 
 #search-button{
   width: 40px;
+  position: relative;
 svg {
   width: 20px;  
+}
+&::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: $color-blue-med;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  transition: width 0.3s ease;
+  opacity: 0;
+}
+&:hover {
+  &::after {
+    opacity: 1;
+  }
 }
 }
 
 
 .c-lang-select {
-padding: 10px 40px;
+padding: 10px 30px 10px 15px;
 display: flex;
 align-items: center;
   button {
     font-family: $font-secondary;
+    letter-spacing: 1px;
     width: 30px;
     height: 30px;
     color: #fff;
+    font-weight: 600;
     border: 1px solid $color-blue-med;
     background-color: $color-blue-dark;
+    font-size: 17px;
   }
   button.c-lang-select--current {
     border: none;
@@ -116,7 +156,6 @@ align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-right: 50px;
   }
   .c-main-menu > li {
     margin: 0;
@@ -127,25 +166,46 @@ align-items: center;
   .c-main-menu > li > a,  .c-main-menu > li > button {
     color: #fff;
     font-family: $font-secondary;
+    letter-spacing: 1px;
     font-size: 17px;
+    word-spacing: .1em;
     font-weight: 600;
     display: block;
-    font-size: 1rem;
     margin: 0;
-    padding: 20px 34px;
+    padding: 20px 15px;
     text-transform: uppercase;
     position: relative;
+    cursor: unset;
     &:first-of-type > a {
       padding-left: 0;
     }
     &:last-of-type > a {
       padding-right: 0;
     }
-    
+    span {
+      position: relative;
+    }
+    span::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $color-blue-med;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      transition: width 0.3s ease;
+      opacity: 0;
+    }
+    &:hover {
+      span::after {
+        opacity: 1;
+      }
+    }
     
   }
   .c-main-menu > li > a:hover {
-    color: #000;
+    color: #fff;
     &::after {
       background-color: $color-primary;
       transition: $transition-ease;
@@ -180,9 +240,8 @@ align-items: center;
   }
   .c-main-menu ul {
     background-color: transparent;
-    
     position: absolute;
-    left: 21px;
+    left: 15px;
     top: 100%;
     min-width: 180px;
     margin: 0;
@@ -226,15 +285,30 @@ align-items: center;
   .c-main-menu ul li a {
     color: #fff;
     font-size: 0.938rem;
-    padding: 8px 15px;
+    padding: 8px 11px 8px 0;
     width: 100%;
     display: block;
     transition: $transition-ease;
     text-transform: uppercase;
     font-family: $font-secondary;
+    letter-spacing: 1px;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 17px; 
+    border: 1px solid transparent; 
+
+    &:focus, &:active {
+      border: 1px solid #F26531 !important; 
+  outline-offset: 0px;  
+    }
+  
   }
+
+  // Increase specificity for debugging
+.c-main-menu ul li a:focus, 
+.c-main-menu ul li a:active {
+    outline: 1px solid #F26531 !important; 
+    outline-offset: 0px;  
+}
 
   .c-main-menu ul ul {
     visibility: visible;
@@ -245,13 +319,14 @@ align-items: center;
     
     li {
       a {
-        font-family: $font-primary;
-        padding: 6px 15px;
+        font-family: $font-alt;
+        padding: 6px 15px 6px 0;
         font-weight: 400;
         text-transform: none;
         font-size: 16px;
         line-height: 1.4;
       }
+      
     }
   }
   .menu-item-has-children .sub-menu {
@@ -285,7 +360,7 @@ align-items: center;
   display: block;
   opacity: 0;
   visibility: hidden;
-background: $color-blue-dark;
+background: $color-blue-darkest;
 position: absolute;
 left: 0;
 top: calc(100% + 1px);
@@ -293,6 +368,7 @@ width: 100%;
 height: 400px;
 z-index: -1;
 transition: opacity 0.3s ease, visibility 0.3s ease;
+border-bottom: 1px solid $color-blue-med;
 }
 
 .c-nav-bg.visible {

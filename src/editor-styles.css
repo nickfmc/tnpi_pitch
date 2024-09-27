@@ -51,6 +51,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Open Sans SemiCondensed";
+  src: url("../fonts/OpenSans_SemiCondensed-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 /* ==========================================================================
    WRAPPERS
    ========================================================================== */
@@ -77,6 +84,30 @@
 
 .o-blue-wrapper {
   color: #fff;
+}
+
+.o-white-doubleborder-inner {
+  position: relative;
+}
+.o-white-doubleborder-inner::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 1px;
+  background-color: #026CB6;
+  position: absolute;
+  left: -10px;
+  top: 0;
+}
+.o-white-doubleborder-inner::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 1px;
+  background-color: #026CB6;
+  position: absolute;
+  right: -10px;
+  top: 0;
 }
 
 /* ==========================================================================
@@ -3207,6 +3238,10 @@ select:focus {
   outline-offset: 0px;
 }
 
+.is-dark-page:not(.search) {
+  background-color: #1C2674;
+}
+
 /* ==========================================================================
    BLOCKQUOTE
    ========================================================================== */
@@ -3215,7 +3250,7 @@ blockquote {
   padding: 1em 1.5em;
   margin: 30px 0;
   font-size: clamp(1.13rem, 0.6vw + 0.98rem, 1.5rem);
-  color: #28317B;
+  color: #026CB6;
 }
 blockquote::before {
   content: "“";
@@ -3254,28 +3289,41 @@ blockquote::before {
    HEADINGS
    ========================================================================== */
 h1, .h1-style, h2, .h2-style, h3, .h3-style, h4, .h4-style, h5, .h5-style, h6, .h6-style {
-  color: #28317B;
+  color: #026CB6;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  line-height: 1.28;
+  line-height: 1.3;
   margin: 0 0 22px 0;
 }
 h1.is-style-u-eyebrow-heading, .h1-style.is-style-u-eyebrow-heading, h2.is-style-u-eyebrow-heading, .h2-style.is-style-u-eyebrow-heading, h3.is-style-u-eyebrow-heading, .h3-style.is-style-u-eyebrow-heading, h4.is-style-u-eyebrow-heading, .h4-style.is-style-u-eyebrow-heading, h5.is-style-u-eyebrow-heading, .h5-style.is-style-u-eyebrow-heading, h6.is-style-u-eyebrow-heading, .h6-style.is-style-u-eyebrow-heading {
   font-family: "Open Sans Condensed", sans-serif;
+  letter-spacing: 1px;
   font-weight: 600;
   font-size: clamp(1.25rem, 0.2vw + 1.2rem, 1.38rem) !important;
-  color: #739DD2;
-  margin-bottom: 20px;
+  color: #026CB6;
+  margin-bottom: 30px;
+  line-height: 1;
 }
 h1.is-style-u-eyebrow-heading.mb-0, .h1-style.is-style-u-eyebrow-heading.mb-0, h2.is-style-u-eyebrow-heading.mb-0, .h2-style.is-style-u-eyebrow-heading.mb-0, h3.is-style-u-eyebrow-heading.mb-0, .h3-style.is-style-u-eyebrow-heading.mb-0, h4.is-style-u-eyebrow-heading.mb-0, .h4-style.is-style-u-eyebrow-heading.mb-0, h5.is-style-u-eyebrow-heading.mb-0, .h5-style.is-style-u-eyebrow-heading.mb-0, h6.is-style-u-eyebrow-heading.mb-0, .h6-style.is-style-u-eyebrow-heading.mb-0 {
   margin-bottom: 0;
 }
+h1.is-style-u-eyebrow-heading br, .h1-style.is-style-u-eyebrow-heading br, h2.is-style-u-eyebrow-heading br, .h2-style.is-style-u-eyebrow-heading br, h3.is-style-u-eyebrow-heading br, .h3-style.is-style-u-eyebrow-heading br, h4.is-style-u-eyebrow-heading br, .h4-style.is-style-u-eyebrow-heading br, h5.is-style-u-eyebrow-heading br, .h5-style.is-style-u-eyebrow-heading br, h6.is-style-u-eyebrow-heading br, .h6-style.is-style-u-eyebrow-heading br {
+  margin-bottom: 7px;
+}
+h1.is-style-u-eyebrow-heading + h2, h1.is-style-u-eyebrow-heading + h3, .h1-style.is-style-u-eyebrow-heading + h2, .h1-style.is-style-u-eyebrow-heading + h3, h2.is-style-u-eyebrow-heading + h2, h2.is-style-u-eyebrow-heading + h3, .h2-style.is-style-u-eyebrow-heading + h2, .h2-style.is-style-u-eyebrow-heading + h3, h3.is-style-u-eyebrow-heading + h2, h3.is-style-u-eyebrow-heading + h3, .h3-style.is-style-u-eyebrow-heading + h2, .h3-style.is-style-u-eyebrow-heading + h3, h4.is-style-u-eyebrow-heading + h2, h4.is-style-u-eyebrow-heading + h3, .h4-style.is-style-u-eyebrow-heading + h2, .h4-style.is-style-u-eyebrow-heading + h3, h5.is-style-u-eyebrow-heading + h2, h5.is-style-u-eyebrow-heading + h3, .h5-style.is-style-u-eyebrow-heading + h2, .h5-style.is-style-u-eyebrow-heading + h3, h6.is-style-u-eyebrow-heading + h2, h6.is-style-u-eyebrow-heading + h3, .h6-style.is-style-u-eyebrow-heading + h2, .h6-style.is-style-u-eyebrow-heading + h3 {
+  margin-top: -15px;
+}
 h1.is-style-u-eyebrow-heading-white, .h1-style.is-style-u-eyebrow-heading-white, h2.is-style-u-eyebrow-heading-white, .h2-style.is-style-u-eyebrow-heading-white, h3.is-style-u-eyebrow-heading-white, .h3-style.is-style-u-eyebrow-heading-white, h4.is-style-u-eyebrow-heading-white, .h4-style.is-style-u-eyebrow-heading-white, h5.is-style-u-eyebrow-heading-white, .h5-style.is-style-u-eyebrow-heading-white, h6.is-style-u-eyebrow-heading-white, .h6-style.is-style-u-eyebrow-heading-white {
   font-family: "Open Sans Condensed", sans-serif;
+  letter-spacing: 1px;
   font-weight: 600;
   font-size: clamp(1.25rem, 0.2vw + 1.2rem, 1.38rem) !important;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.is-dark-page:not(.search) h1.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h1-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h2.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h2-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h3.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h3-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h4.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h4-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h5.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h5-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h6.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h6-style.is-style-u-eyebrow-heading, .o-blue-wrapper h1.is-style-u-eyebrow-heading, .o-blue-wrapper .h1-style.is-style-u-eyebrow-heading, .o-blue-wrapper h2.is-style-u-eyebrow-heading, .o-blue-wrapper .h2-style.is-style-u-eyebrow-heading, .o-blue-wrapper h3.is-style-u-eyebrow-heading, .o-blue-wrapper .h3-style.is-style-u-eyebrow-heading, .o-blue-wrapper h4.is-style-u-eyebrow-heading, .o-blue-wrapper .h4-style.is-style-u-eyebrow-heading, .o-blue-wrapper h5.is-style-u-eyebrow-heading, .o-blue-wrapper .h5-style.is-style-u-eyebrow-heading, .o-blue-wrapper h6.is-style-u-eyebrow-heading, .o-blue-wrapper .h6-style.is-style-u-eyebrow-heading, footer h1.is-style-u-eyebrow-heading, footer .h1-style.is-style-u-eyebrow-heading, footer h2.is-style-u-eyebrow-heading, footer .h2-style.is-style-u-eyebrow-heading, footer h3.is-style-u-eyebrow-heading, footer .h3-style.is-style-u-eyebrow-heading, footer h4.is-style-u-eyebrow-heading, footer .h4-style.is-style-u-eyebrow-heading, footer h5.is-style-u-eyebrow-heading, footer .h5-style.is-style-u-eyebrow-heading, footer h6.is-style-u-eyebrow-heading, footer .h6-style.is-style-u-eyebrow-heading {
+  color: #739DD2;
 }
 
 h1 a, .h1-style a, h2 a, .h2-style a, h3 a, .h3-style a, h4 a, .h4-style a, h5 a, .h5-style a, h6 a, .h6-style a {
@@ -3285,12 +3333,17 @@ h1 a, .h1-style a, h2 a, .h2-style a, h3 a, .h3-style a, h4 a, .h4-style a, h5 a
 h1, .h1-style {
   font-size: clamp(2.81rem, 1.5vw + 2.44rem, 3.75rem);
   font-weight: 700;
+  color: #1C2674;
 }
 
 h2, .h2-style {
   font-size: clamp(2.13rem, 1.4vw + 1.78rem, 3rem);
   font-weight: 600;
   margin-bottom: 58px;
+  word-spacing: 0.1em;
+}
+h2.is-style-u-eyebrow-heading, .h2-style.is-style-u-eyebrow-heading {
+  text-transform: uppercase;
 }
 
 h3, .h3-style {
@@ -3300,9 +3353,11 @@ h3, .h3-style {
 }
 
 h4, .h4-style {
-  font-size: clamp(1.13rem, 0vw + 1.13rem, 1.13rem);
+  font-size: clamp(1.13rem, 0.4vw + 1.02rem, 1.38rem);
+  font-family: "Open Sans Condensed", sans-serif;
+  word-spacing: 0.1em;
+  letter-spacing: 1px;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 h5, .h5-style {
@@ -3418,6 +3473,112 @@ form input::placeholder {
   text-overflow: ellipsis;
 }
 
+form label, .gform-body label {
+  font-weight: 400 !important;
+  margin-bottom: 2px !important;
+}
+form input, form select, form textarea, .gform-body input, .gform-body select, .gform-body textarea {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  border-radius: 0 !important;
+  border: 1px solid #C1C7D1 !important;
+  background: var(--Colors-Background-bg-primary, #FFF);
+  /* Shadows/shadow-xs */
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+          box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  overflow: hidden;
+  color: var(--Colors-Text-text-placeholder, #667085);
+  text-overflow: ellipsis;
+  padding: 12px 12px !important;
+}
+form input::-webkit-input-placeholder, form select::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, .gform-body input::-webkit-input-placeholder, .gform-body select::-webkit-input-placeholder, .gform-body textarea::-webkit-input-placeholder {
+  overflow: hidden;
+  color: #667085;
+  text-overflow: ellipsis;
+}
+form input::-moz-placeholder, form select::-moz-placeholder, form textarea::-moz-placeholder, .gform-body input::-moz-placeholder, .gform-body select::-moz-placeholder, .gform-body textarea::-moz-placeholder {
+  overflow: hidden;
+  color: #667085;
+  text-overflow: ellipsis;
+}
+form input:-ms-input-placeholder, form select:-ms-input-placeholder, form textarea:-ms-input-placeholder, .gform-body input:-ms-input-placeholder, .gform-body select:-ms-input-placeholder, .gform-body textarea:-ms-input-placeholder {
+  overflow: hidden;
+  color: #667085;
+  text-overflow: ellipsis;
+}
+form input::-ms-input-placeholder, form select::-ms-input-placeholder, form textarea::-ms-input-placeholder, .gform-body input::-ms-input-placeholder, .gform-body select::-ms-input-placeholder, .gform-body textarea::-ms-input-placeholder {
+  overflow: hidden;
+  color: #667085;
+  text-overflow: ellipsis;
+}
+form input::placeholder, form select::placeholder, form textarea::placeholder, .gform-body input::placeholder, .gform-body select::placeholder, .gform-body textarea::placeholder {
+  overflow: hidden;
+  color: #667085;
+  text-overflow: ellipsis;
+}
+
+.is-dark-page form input, .is-dark-page form select, .is-dark-page form textarea, .is-dark-page .gform-body input, .is-dark-page .gform-body select, .is-dark-page .gform-body textarea, .o-blue-wrapper form input, .o-blue-wrapper form select, .o-blue-wrapper form textarea, .o-blue-wrapper .gform-body input, .o-blue-wrapper .gform-body select, .o-blue-wrapper .gform-body textarea {
+  background-color: #28317B;
+  border-color: #026CB6 !important;
+}
+.is-dark-page form .gfield_required .gfield_required_text, .is-dark-page .gform-body .gfield_required .gfield_required_text, .o-blue-wrapper form .gfield_required .gfield_required_text, .o-blue-wrapper .gform-body .gfield_required .gfield_required_text {
+  color: #F26531;
+}
+
+.gform-theme--foundation .gform_fields {
+  grid-row-gap: 20px !important;
+}
+
+.gform_wrapper.gravity-theme .gform_fields {
+  grid-column-gap: 60px !important;
+}
+
+body .gform_wrapper.gravity-theme .gform_footer {
+  display: -webkit-inline-box !important;
+  display: -ms-inline-flexbox !important;
+  display: inline-flex !important;
+  margin-top: 60px;
+  padding-top: 0;
+}
+body .gform_wrapper.gravity-theme .gform_footer input.gform_button.button {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: #fff !important;
+  padding: 16px 30px !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000 !important;
+  text-align: center;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: 0.18px;
+  border-radius: 5px;
+  border: 1px solid !important;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+body.is-dark-page .gform_wrapper.gravity-theme .gform_footer input.gform_button.button, body .o-blue-wrapper .gform_wrapper.gravity-theme .gform_footer input.gform_button.button {
+  border-color: #026CB6 !important;
+  background-color: #28317B !important;
+  color: #fff !important;
+}
+
 /* ==========================================================================
    A TAG (links) STYLES
    ========================================================================== */
@@ -3429,9 +3590,9 @@ a {
   transition: all 250ms ease;
 }
 
-a:hover {
-  -webkit-filter: brightness(1.4);
-          filter: brightness(1.4);
+.editor-content a:hover {
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
 }
 
 a, a:active, a:hover, a:visited {
@@ -3442,8 +3603,11 @@ a[href^="mailto:"] {
   overflow-wrap: break-word;
 }
 
-.editor-content a {
+.editor-content a:not(.gb-button) {
   text-decoration: underline;
+}
+.editor-content a:not(.gb-button):hover {
+  text-decoration-color: #F26531;
 }
 
 /* ==========================================================================
@@ -3451,13 +3615,14 @@ a[href^="mailto:"] {
    ========================================================================== */
 p {
   line-height: 1.6;
-  margin: 0 0 34px 0;
+  margin: 0 0 30px 0;
   padding: 0;
   font-size: 18px;
 }
 p.is-style-u-eyebrow-heading {
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: 600;
+  letter-spacing: 1px;
   font-size: clamp(1.25rem, 0.2vw + 1.2rem, 1.38rem) !important;
   color: #739DD2;
   margin-bottom: 20px;
@@ -3467,10 +3632,15 @@ p.is-style-u-eyebrow-heading.mb-0 {
 }
 p.is-style-u-eyebrow-heading-white {
   font-family: "Open Sans Condensed", sans-serif;
+  letter-spacing: 1px;
   font-weight: 600;
   font-size: clamp(1.25rem, 0.2vw + 1.2rem, 1.38rem) !important;
   color: #fff;
   margin-bottom: 20px;
+}
+
+main p + .is-style-u-eyebrow-heading {
+  margin-top: 54px;
 }
 
 /* ==========================================================================
@@ -3494,10 +3664,15 @@ p.is-style-u-eyebrow-heading-white {
   -webkit-transition: all 250ms ease;
   transition: all 250ms ease;
   white-space: nowrap;
+  letter-spacing: 1px;
 }
 .c-blk-btn a:hover, .c-btn-primary a:hover, .wp-block-button.is-style-standard a.wp-block-button__link:hover, .wp-block-button.is-style-standard .wp-block-button__link:hover {
   background-color: #BABCBE;
   color: #000;
+}
+
+.btn-dark {
+  letter-spacing: 1px;
 }
 
 /* ==========================================================================
@@ -6437,9 +6612,17 @@ p.is-style-u-eyebrow-heading-white {
   padding-bottom: 56.25%; /* (9 / 16 = 0.5625) */
 }
 
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
 .u-orphan-fix {
   overflow: hidden;
   width: auto;
+}
+
+.u-no-underline a[href^="tel:"] {
+  text-decoration: none !important;
 }
 
 .u-visually-hidden {
@@ -6465,6 +6648,7 @@ p.is-style-u-eyebrow-heading-white {
 
 .is-style-secondaryfont {
   font-family: "Open Sans Condensed", sans-serif;
+  letter-spacing: 1px;
 }
 
 .wp-block[data-align=full] .wp-block-group .wp-block {

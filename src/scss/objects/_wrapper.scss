@@ -27,3 +27,27 @@
   color: #fff;
 
 }
+
+.o-white-doubleborder-inner {
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 1px;
+    background-color: $color-blue-med;
+    position: absolute;
+    left: -10px;
+    top: 0;
+  }
+  &::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 1px;
+    background-color: $color-blue-med;
+    position: absolute;
+    right: -10px;
+    top: 0;
+  }
+}

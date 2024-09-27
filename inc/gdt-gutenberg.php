@@ -40,8 +40,8 @@ function custom_block_category( $categories ) {
   return array_merge(
       array(
           array(
-              'slug' => 'myblocks',
-              'title' => __( 'Custom Blocks', 'myblocks' ),
+              'slug' => 'my-blocks',
+              'title' => __( 'Custom Blocks', 'my-blocks' ),
           ),
       ),
       $categories
@@ -73,6 +73,7 @@ function maw_register_guten_script() {
 function register_acf_blocks() { 
   register_block_type(  get_stylesheet_directory() . '/template-part/block/banner/block.json' );
   register_block_type(  get_stylesheet_directory() . '/template-part/block/breadcrumbs/block.json' );
+  register_block_type(  get_stylesheet_directory() . '/template-part/block/videoplayer/block.json' );
   // register_block_type(  get_stylesheet_directory() . '/template-part/block/swiper-material/block.json' );
   // register_block_type(  get_stylesheet_directory() . '/template-part/block/swiper-projects/block.json' );
 }

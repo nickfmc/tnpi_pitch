@@ -5,6 +5,99 @@
 
 // *********************** START CUSTOM JS *********************************
 
+// Accessible Video Player
+document.addEventListener('DOMContentLoaded', function() {
+    const videoPlayers = document.querySelectorAll('.video-player');
+
+    videoPlayers.forEach(videoPlayer => {
+        const video = videoPlayer.querySelector('video');
+        const playPauseButton = videoPlayer.querySelector('.play-pause');
+        const muteButton = videoPlayer.querySelector('.mute');
+        const ccButton = videoPlayer.querySelector('.cc');
+        const transcriptToggleButton = videoPlayer.querySelector('.transcript-toggle');
+        const progressBar = videoPlayer.querySelector('.progress-bar');
+        const progressContainer = videoPlayer.querySelector('.progress-container');
+        const transcript = videoPlayer.closest('.alignfull').querySelector('.transcript'); // Find the transcript outside the video player
+
+        // Play/Pause functionality
+        playPauseButton.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playPauseButton.textContent = 'Pause';
+            } else {
+                video.pause();
+                playPauseButton.textContent = 'Play';
+            }
+        });
+
+        // Mute/Unmute functionality (only if the button exists)
+        if (muteButton) {
+            muteButton.addEventListener('click', function() {
+                video.muted = !video.muted;
+                muteButton.textContent = video.muted ? 'Unmute' : 'Mute';
+            });
+        }
+
+        // Toggle Captions functionality (only if the button exists)
+        if (ccButton) {
+            ccButton.addEventListener('click', function() {
+                const track = video.querySelector('track');
+                if (track.mode === 'showing') {
+                    track.mode = 'hidden';
+                    ccButton.textContent = 'CC';
+                } else {
+                    track.mode = 'showing';
+                    ccButton.textContent = 'CC (On)';
+                }
+            });
+        }
+
+        // Toggle Transcript functionality
+        if (transcriptToggleButton && transcript) {
+            transcriptToggleButton.addEventListener('click', function() {
+                const isHidden = transcript.hasAttribute('hidden');
+                if (isHidden) {
+                    transcript.removeAttribute('hidden');
+                    transcriptToggleButton.setAttribute('aria-expanded', 'true');
+                    transcriptToggleButton.textContent = 'Hide Transcript';
+                } else {
+                    transcript.setAttribute('hidden', '');
+                    transcriptToggleButton.setAttribute('aria-expanded', 'false');
+                    transcriptToggleButton.textContent = 'Transcript';
+                }
+            });
+        }
+
+        // Update progress bar as the video plays
+        video.addEventListener('timeupdate', function() {
+            const progress = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        // Seek functionality
+        progressContainer.addEventListener('click', function(e) {
+            const rect = progressContainer.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            const newTime = (offsetX / rect.width) * video.duration;
+            video.currentTime = newTime;
+        });
+
+        // Keyboard navigation for controls
+        const controls = videoPlayer.querySelectorAll('.controls button');
+        controls.forEach((control, index) => {
+            control.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight') {
+                    controls[(index + 1) % controls.length].focus();
+                } else if (e.key === 'ArrowLeft') {
+                    controls[(index - 1 + controls.length) % controls.length].focus();
+                }
+            });
+        });
+    });
+});
+
+
+
 // // grab element for Headroom
 // var headroomElement = document.querySelector("#c-page-header");
 // console.log(headroomElement);
@@ -25,20 +118,22 @@
 // });
 // headroom.init();
 document.addEventListener('DOMContentLoaded', function() {
-  const imgBanner = document.querySelector('.c-img-banner');
-  
-  if (imgBanner) { // Check if the element exists
-    const img = imgBanner.querySelector('img');
+    const imgBanners = document.querySelectorAll('.c-img-banner');
 
-    img.addEventListener('load', function() {
-        imgBanner.classList.add('loaded');
+    imgBanners.forEach(imgBanner => {
+        const img = imgBanner.querySelector('img');
+
+        if (img) { // Check if the image element exists
+            img.addEventListener('load', function() {
+                imgBanner.classList.add('loaded');
+            });
+
+            // If the image is cached, the load event might not fire
+            if (img.complete) {
+                imgBanner.classList.add('loaded');
+            }
+        }
     });
-
-    // If the image is cached, the load event might not fire
-    if (img.complete) {
-        imgBanner.classList.add('loaded');
-    }
-  }
 });
 
 
@@ -65,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const searchButton = document.getElementById('search-button');
     const searchPopup = document.getElementById('search-popup');
+    const searchSubmit = document.getElementById('search-submit');
     const searchField = document.getElementById('s'); // Corrected ID for the search field
     const closeSearchPopupButton = document.getElementById('close-search-popup');
 
@@ -96,6 +192,22 @@ document.addEventListener('DOMContentLoaded', function() {
             trapFocus(searchPopup);
         } else {
             window.closeSearchPopup();
+        }
+    });
+
+    // Add keydown event listener to trigger click on Enter key press for the search field
+    searchField.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            searchSubmit.click();
+        }
+    });
+
+    // Add keydown event listener to trigger click on Enter key press for the search submit button
+    searchSubmit.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            searchSubmit.click();
         }
     });
 
@@ -166,7 +278,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-
 
 // END Accessible Search Popup
 
@@ -251,9 +362,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+          // Close menu on Esc key press
+          if (e.key === 'Escape') {
+            menuButtons.forEach(button => {
+                button.setAttribute('aria-expanded', 'false');
+            });
+            navBg.classList.remove('visible');
+            document.activeElement.blur(); // Release focus
+        }
     });
 });
 
+
+// a hover + click dropdown menu
 
 document.getElementById('open-modal-nav').addEventListener('click', function(){
     document.querySelector('html').classList.add('has-modal-nav-open');
@@ -267,7 +388,6 @@ document.getElementById('close-modal-nav').addEventListener('click', function(){
 document.addEventListener('click', function(e){
     // Your existing code here
 });
-
 
 
 // Close modal nav when clicking outside of it when it already open

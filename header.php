@@ -18,7 +18,13 @@
   <?php // END Analytics ?>
 </head>
 
-<body <?php body_class(pretty_body_class()); ?> itemscope itemtype="https://schema.org/WebPage">
+<body <?php 
+    $classes = pretty_body_class();
+    if (get_field('is_dark_page')) {
+        $classes .= ' is-dark-page';
+    }
+    body_class($classes); 
+?> itemscope itemtype="https://schema.org/WebPage">
 
   <header id="c-page-header" class="o-section c-page-header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
     <div class="c-page-header-upper">

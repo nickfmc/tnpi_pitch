@@ -11,4 +11,9 @@
   justify-content: space-between;
   margin: 0;
   @include list-reset;
+  li {
+    &::before {
+      display: none;
+    }
+  }
 }

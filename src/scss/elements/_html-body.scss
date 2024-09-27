@@ -30,3 +30,7 @@ select:focus {
   outline-offset: 0px;
   
 }
+
+.is-dark-page:not(.search) {
+  background-color: $color-blue-darkest;
+}

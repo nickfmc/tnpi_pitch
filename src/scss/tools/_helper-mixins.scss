@@ -25,6 +25,7 @@
 
 @mixin secondary-font() {
   font-family: $font-secondary;
+  letter-spacing: 1px;
   font-weight: 400;
 }
 

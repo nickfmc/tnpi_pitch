@@ -14,7 +14,14 @@
 </button>
 
 <div id="search-popup" role="dialog" aria-hidden="true" inert="true">
-  <button type="button" id="close-search-popup" class="close-button" aria-label="Close search popup" onclick="closeSearchPopup()">×</button>
+  <button type="button" id="close-search-popup" class="c-search-close-button" aria-label="Close search popup" onclick="closeSearchPopup()"><svg width="15px" height="14px" viewBox="0 0 15 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="X" transform="matrix(1,0,0,1,-1792,-1792)">
+        <use xlink:href="#_Image1" x="1791" y="1791" width="17px" height="16px"/>
+    </g>
+    <defs>
+        <image id="_Image1" width="17px" height="16px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAYAAADwMZRfAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAcklEQVQ4ja3TSwrAMAgE0NH739muCmEyoxbqLh8fiSLwQwQAVFWd62UUAEREJCWXvq+BNy+Pgy10vTrpwgTJbzPSQbZuClFQW3iHKMh2rkPW0SH8Ats1hzDQQgpxNbAQI1MRJXQi2/m5oKSN7QB+nbU5HjwPHBwBDHaXAAAAAElFTkSuQmCC"/>
+    </defs>
+</svg></button>
   <form role="search" method="get" id="search-form" class="c-search-form" action="<?php echo home_url( '/' ); ?>">
     <div>
       <label for="s" class="u-visually-hidden">Search for:</label>
