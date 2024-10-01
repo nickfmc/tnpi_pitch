@@ -20,21 +20,6 @@
 					"color": "#FFFFFF",
 					"name": "White"
 				},
-                {
-					"slug": "dark-grey",
-					"color": "#455560",
-					"name": "Dark grey #455560"
-				},
-				{
-					"slug": "medium-grey",
-					"color": "#717073",
-					"name": "Medium grey #717073"
-				},
-				{
-					"slug": "light-grey",
-					"color": "#BABCBE",
-					"name": "Light grey #BABCBE"
-				},
 				{
 					"slug": "light-blue",
 					"color": "#739DD2",
@@ -59,16 +44,6 @@
 					"slug": "darkish-blue",
 					"color": "#28317B",
 					"name": "Dark blue #28317B"
-				},
-				{
-					"slug": "dark-green",
-					"color": "#006B6E",
-					"name": "Dark green #006B6E"
-				},
-				{
-					"slug": "light-green",
-					"color": "#A0CF67",
-					"name": "Light green #A0CF67"
 				},
 				{
 					"slug": "dark-orange",

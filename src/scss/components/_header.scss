@@ -21,7 +21,7 @@
 
 .c-page-header-upper {
   height: 35px;
-  background-color: #fff;
+  background-color: $color-blue-darkest;
   border-bottom: 1px solid $color-blue-med;
   padding-left: 30px;
   padding-right: 30px;
@@ -36,7 +36,7 @@
 
 .is-dark-page {
   .c-page-header-upper {
-    background-color: $color-blue-darkest;
+    background-color: $color-blue-darkest; 
   border-bottom: 1px solid $color-blue-med;
   }
 }
@@ -51,7 +51,7 @@
 }
 
 .c-page-header-upper-inner span {
-  color: $color-blue-dark;
+  color: $color-blue-light;
   font-family: $font-secondary;
   letter-spacing: 1px;
   font-size: 17px;
@@ -59,7 +59,7 @@
   text-transform: uppercase;
   margin-top: -3px;
   a {
-    color: $color-blue-dark;
+    color: $color-blue-light;
     font-family: $font-secondary;
     letter-spacing: 1px;
     font-size: 17px;

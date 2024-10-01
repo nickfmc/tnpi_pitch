@@ -4713,7 +4713,7 @@ main p + .is-style-u-eyebrow-heading {
 
 .c-page-header-upper {
   height: 35px;
-  background-color: #fff;
+  background-color: #1C2674;
   border-bottom: 1px solid #026CB6;
   padding-left: 30px;
   padding-right: 30px;
@@ -4746,7 +4746,7 @@ main p + .is-style-u-eyebrow-heading {
 }
 
 .c-page-header-upper-inner span {
-  color: #28317B;
+  color: #739DD2;
   font-family: "Open Sans Condensed", sans-serif;
   letter-spacing: 1px;
   font-size: 17px;
@@ -4755,7 +4755,7 @@ main p + .is-style-u-eyebrow-heading {
   margin-top: -3px;
 }
 .c-page-header-upper-inner span a {
-  color: #28317B;
+  color: #739DD2;
   font-family: "Open Sans Condensed", sans-serif;
   letter-spacing: 1px;
   font-size: 17px;
