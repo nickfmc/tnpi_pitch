@@ -3247,7 +3247,7 @@ abbr[title] {
  */
 b,
 strong {
-  font-weight: bolder;
+  font-weight: 600;
 }
 
 /**
@@ -3754,6 +3754,10 @@ h1.is-style-u-eyebrow-heading-white, .h1-style.is-style-u-eyebrow-heading-white,
   margin-bottom: 30px;
 }
 
+h3.is-style-u-eyebrow-heading, .h3-style.is-style-u-eyebrow-heading {
+  line-height: 114%;
+}
+
 .is-dark-page:not(.search) h1.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h1-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h2.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h2-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h3.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h3-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h4.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h4-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h5.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h5-style.is-style-u-eyebrow-heading, .is-dark-page:not(.search) h6.is-style-u-eyebrow-heading, .is-dark-page:not(.search) .h6-style.is-style-u-eyebrow-heading, .o-blue-wrapper h1.is-style-u-eyebrow-heading, .o-blue-wrapper .h1-style.is-style-u-eyebrow-heading, .o-blue-wrapper h2.is-style-u-eyebrow-heading, .o-blue-wrapper .h2-style.is-style-u-eyebrow-heading, .o-blue-wrapper h3.is-style-u-eyebrow-heading, .o-blue-wrapper .h3-style.is-style-u-eyebrow-heading, .o-blue-wrapper h4.is-style-u-eyebrow-heading, .o-blue-wrapper .h4-style.is-style-u-eyebrow-heading, .o-blue-wrapper h5.is-style-u-eyebrow-heading, .o-blue-wrapper .h5-style.is-style-u-eyebrow-heading, .o-blue-wrapper h6.is-style-u-eyebrow-heading, .o-blue-wrapper .h6-style.is-style-u-eyebrow-heading, footer h1.is-style-u-eyebrow-heading, footer .h1-style.is-style-u-eyebrow-heading, footer h2.is-style-u-eyebrow-heading, footer .h2-style.is-style-u-eyebrow-heading, footer h3.is-style-u-eyebrow-heading, footer .h3-style.is-style-u-eyebrow-heading, footer h4.is-style-u-eyebrow-heading, footer .h4-style.is-style-u-eyebrow-heading, footer h5.is-style-u-eyebrow-heading, footer .h5-style.is-style-u-eyebrow-heading, footer h6.is-style-u-eyebrow-heading, footer .h6-style.is-style-u-eyebrow-heading {
   color: #739DD2;
 }
@@ -3763,7 +3767,7 @@ h1 a, .h1-style a, h2 a, .h2-style a, h3 a, .h3-style a, h4 a, .h4-style a, h5 a
 }
 
 h1, .h1-style {
-  font-size: clamp(2.81rem, 1.5vw + 2.44rem, 3.75rem);
+  font-size: clamp(2.5rem, 2vw + 2rem, 3.75rem);
   font-weight: 700;
   color: #1C2674;
 }
@@ -3807,13 +3811,13 @@ h6, .h6-style {
    ========================================================================== */
 hr, hr.wp-block-separator {
   display: block;
-  margin: 1rem auto;
+  margin: 10px auto;
   padding: 0;
   clear: both;
   width: 100%;
   border-top: 0;
-  border-color: #333;
-  margin: 50px auto;
+  margin: 60px auto 20px auto;
+  height: 1px;
 }
 
 /* ==========================================================================
@@ -4130,10 +4134,10 @@ main p + .is-style-u-eyebrow-heading {
   color: #fff;
 }
 
-.o-white-doubleborder-inner {
+.o-white-doubleborder-inner, .o-double-bordered-inner {
   position: relative;
 }
-.o-white-doubleborder-inner::before {
+.o-white-doubleborder-inner::before, .o-double-bordered-inner::before {
   content: "";
   display: block;
   height: 100%;
@@ -4143,7 +4147,7 @@ main p + .is-style-u-eyebrow-heading {
   left: -10px;
   top: 0;
 }
-.o-white-doubleborder-inner::after {
+.o-white-doubleborder-inner::after, .o-double-bordered-inner::after {
   content: "";
   display: block;
   height: 100%;
@@ -4152,6 +4156,10 @@ main p + .is-style-u-eyebrow-heading {
   position: absolute;
   right: -10px;
   top: 0;
+}
+
+.gb-container .gb-container p:last-child {
+  margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -4560,6 +4568,14 @@ main p + .is-style-u-eyebrow-heading {
 .c-page-footer {
   background-color: #1C2674;
 }
+.c-page-footer a {
+  text-decoration: underline;
+}
+.c-page-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #F26531;
+}
 
 .c-page-footer-main {
   background-color: #1C2674;
@@ -4650,6 +4666,7 @@ main p + .is-style-u-eyebrow-heading {
 }
 .c-page-footer-topper a:hover {
   color: #fff;
+  text-decoration: underline;
 }
 
 .c-page-footer-spacer {
@@ -4759,9 +4776,12 @@ main p + .is-style-u-eyebrow-heading {
   font-family: "Open Sans Condensed", sans-serif;
   letter-spacing: 1px;
   font-size: 17px;
+  text-decoration: underline;
 }
 .c-page-header-upper-inner span a:hover {
   text-decoration: underline;
+  color: #739DD2 !important;
+  text-decoration-color: #fff;
 }
 
 .is-dark-page .c-page-header-upper-inner span {
@@ -5013,6 +5033,50 @@ main p + .is-style-u-eyebrow-heading {
   border-color: #026CB6;
 }
 
+.c-tab-toggle {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #026CB6;
+  background-color: #28317B;
+  position: relative;
+  margin-right: 15px;
+}
+.c-tab-toggle::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.c-tab-toggle::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 15px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.gb-tabs__button.gb-block-is-current .c-tab-toggle::before {
+  display: none;
+}
+
+.gb-tabs__button:not(.gb-block-is-current):hover {
+  background-color: #fff !important;
+}
+
 /* ==========================================================================
    MAIN LOGO
    ========================================================================== */
@@ -5167,7 +5231,7 @@ main p + .is-style-u-eyebrow-heading {
       -ms-flex-align: center;
           align-items: center;
 }
-.c-lang-select button {
+.c-lang-select a {
   font-family: "Open Sans Condensed", sans-serif;
   letter-spacing: 1px;
   width: 30px;
@@ -5177,10 +5241,16 @@ main p + .is-style-u-eyebrow-heading {
   border: 1px solid #026CB6;
   background-color: #28317B;
   font-size: 17px;
+  text-align: center;
 }
-.c-lang-select button.c-lang-select--current {
+.c-lang-select a.c-lang-select--current {
   border: none;
   background-color: transparent;
+  color: #739DD2;
+}
+.c-lang-select .c-lang-select-btn:hover {
+  background-color: #fff;
+  color: #28317B;
 }
 
 @media (width >= 992px) {
@@ -5250,7 +5320,7 @@ main p + .is-style-u-eyebrow-heading {
     transition: width 0.3s ease;
     opacity: 0;
   }
-  .c-main-menu > li > a:hover span::after, .c-main-menu > li > button:hover span::after {
+  .c-main-menu > li:hover > a span::after, .c-main-menu > li:hover > button span::after {
     opacity: 1;
   }
   .c-main-menu > li > a:hover {
@@ -5300,7 +5370,7 @@ main p + .is-style-u-eyebrow-heading {
             column-count: 2;
   }
   .c-main-menu > li.u-two-column > ul li {
-    width: 290px;
+    width: 300px;
   }
   .c-main-menu > li.u-two-column > ul li a {
     white-space: normal;
@@ -5373,8 +5443,7 @@ main p + .is-style-u-eyebrow-heading {
   .c-main-menu ul .current_page_item > a,
   .c-main-menu ul .current_page_parent > a,
   .c-main-menu ul .current_page_ancestor > a {
-    color: #ffffff;
-    text-decoration: underline;
+    color: #739DD2;
   }
 }
 .c-nav-bg {
@@ -5386,7 +5455,7 @@ main p + .is-style-u-eyebrow-heading {
   left: 0;
   top: calc(100% + 1px);
   width: 100%;
-  height: 400px;
+  height: 100vh;
   z-index: -1;
   -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -5465,8 +5534,7 @@ main p + .is-style-u-eyebrow-heading {
 .transcript {
   margin-top: 30px;
   margin-top: 20px;
-  padding: 10px;
-  border: 1px dashed #ccc;
+  padding-top: 10px;
 }
 
 /* ==========================================================================
@@ -7069,9 +7137,55 @@ html.has-modal-nav-open {
   width: auto;
 }
 
+.u-no-spacing-lists .gb-grid-column div ul:last-of-type, .u-no-spacing-lists .gb-grid-column div ol:last-of-type {
+  margin-bottom: 0;
+}
+.u-no-spacing-lists .gb-grid-column div ul:last-of-type li:last-of-type, .u-no-spacing-lists .gb-grid-column div ol:last-of-type li:last-of-type {
+  padding-bottom: 0;
+}
+
 /* ==========================================================================
    OVERRIDES - hacks and styles of last resort live here
    ========================================================================== */
+.gb-tabs__buttons button {
+  position: relative;
+}
+.gb-tabs__buttons button::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 30px;
+  background-color: #026CB6;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.gb-tabs__buttons button:last-of-type::after {
+  display: none;
+}
+
+.gb-accordion__toggle {
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+
+.gb-accordion__toggle:hover {
+  background-color: #fff !important;
+}
+.gb-accordion__toggle:hover .gb-icon {
+  color: #1C2674;
+  background-color: #fff;
+}
+.gb-accordion__toggle:hover .gb-icon svg rect {
+  fill: #1C2674 !important;
+}
+
+.wsp-pages-title {
+  display: none;
+}
+
 /* ==========================================================================
    PRINT STYLES
    ========================================================================== */

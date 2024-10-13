@@ -28,7 +28,7 @@
 
 }
 
-.o-white-doubleborder-inner {
+.o-white-doubleborder-inner, .o-double-bordered-inner {
   position: relative;
   &::before {
     content: '';
@@ -50,4 +50,8 @@
     right: -10px;
     top: 0;
   }
+}
+
+.gb-container .gb-container p:last-child {
+  margin-bottom: 0;
 }

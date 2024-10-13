@@ -63,8 +63,11 @@
     font-family: $font-secondary;
     letter-spacing: 1px;
     font-size: 17px;
+    text-decoration: underline;
     &:hover {
       text-decoration: underline;
+      color: $color-blue-light !important;
+      text-decoration-color: #fff;
     }
   }
 }

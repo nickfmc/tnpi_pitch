@@ -125,3 +125,17 @@
   position: static;
   width: auto;
 }
+
+
+.u-no-spacing-lists {
+.gb-grid-column  {
+  div {
+    ul:last-of-type, ol:last-of-type {
+      margin-bottom: 0;
+      li:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+}

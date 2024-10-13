@@ -160,3 +160,49 @@ svg {
         border-color: $color-blue-med;
     }
 }
+
+
+.c-tab-toggle {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    border: 1px solid $color-blue-med;
+    background-color: $color-blue-dark;
+    position: relative;
+    margin-right: 15px;
+    &::after {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 1px;
+        background-color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &::before {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 15px;
+        background-color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.gb-tabs__button.gb-block-is-current .c-tab-toggle{
+    &::before {
+        display: none;
+    }
+}
+
+.gb-tabs__button:not(.gb-block-is-current) {
+    &:hover {
+        background-color: #fff !important;
+    }
+}

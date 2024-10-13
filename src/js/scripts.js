@@ -20,13 +20,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const transcript = videoPlayer.closest('.alignfull').querySelector('.transcript'); // Find the transcript outside the video player
 
         // Play/Pause functionality
-        playPauseButton.addEventListener('click', function() {
+        function togglePlayPause() {
             if (video.paused) {
                 video.play();
                 playPauseButton.textContent = 'Pause';
             } else {
                 video.pause();
                 playPauseButton.textContent = 'Play';
+            }
+        }
+
+        playPauseButton.addEventListener('click', togglePlayPause);
+
+        // Play/Pause functionality when clicking on the video
+        video.addEventListener('click', function(event) {
+            // Check if the click is not on the controls area
+            if (!event.target.closest('.controls')) {
+                togglePlayPause();
             }
         });
 
@@ -481,6 +491,24 @@ menuItems.forEach(function(menuItem) {
 // SLIDING VERSION ////////////////////
 
 
+
+// Select all buttons with the class 'gb-tabs__button'
+var buttons = document.querySelectorAll('button.gb-tabs__button');
+
+// Loop through each button
+buttons.forEach(function(button) {
+  // Create a new span element
+  var span = document.createElement('span');
+  
+  // Add the class 'c-tab-toggle' to the span
+  span.classList.add('c-tab-toggle');
+  
+  // Optionally, you can add some text or attributes to the span
+  span.textContent = ''; // Replace with your desired text
+  
+  // Insert the span before the button text
+  button.insertBefore(span, button.firstChild);
+});
 
 // // ACCORDION VERSION ////////////////////
 // // Get all the menu items that have a submenu
