@@ -103,6 +103,11 @@
 
 .u-no-underline a[href^="tel:"] {
   text-decoration: none !important;
+  text-decoration-color: $color-orange-dark !important;
+  &:hover {
+    text-decoration: underline !important;
+    text-decoration-color: $color-orange-dark !important;
+  }
 }
 // ++ visibility classes ++++++++++++++++++++++++++++++++++++
 .u-visually-hidden {
@@ -131,10 +136,14 @@
 .gb-grid-column  {
   div {
     ul:last-of-type, ol:last-of-type {
-      margin-bottom: 0;
-      li:last-of-type {
-        padding-bottom: 0;
-      }
+      @media(width >= $bp-medium) {
+        margin-bottom: 0;
+        li:last-of-type {
+          padding-bottom: 0;
+        }
+      } 
+      
+     
     }
   }
 }

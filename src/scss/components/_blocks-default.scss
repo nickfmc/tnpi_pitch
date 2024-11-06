@@ -83,8 +83,11 @@ $paddingHorizontal: 30px;
  }
 
  .editor-content > .gb-container.alignfull .gb-container.u-no-xpad {
-  padding-left: 0;
-  padding-right: 0;
+  @media(width >= 1460px) {
+    padding-left: 0;
+    padding-right: 0;
+  } 
+  
  }
 
 
@@ -190,7 +193,7 @@ li {
 }
 
 .editor-content ul.has-large-font-size li , .editor-content ul li.has-large-font-size {
-  font-size: clamped(21px, 24px) !important; 
+  font-size: clamped(20px, 24px) !important; 
   &::before {
     top: 18px;
   }
@@ -223,7 +226,7 @@ top: 15px;
   margin-top: 30px;
 }
 
-.editor-content .o-blue-wrapper  ul li::before {
+.editor-content .o-blue-wrapper  ul li::before, .editor-content .o-blue-wrapper-after-banner  ul li::before {
   background-color: $color-orange;
 }
 
@@ -336,7 +339,7 @@ body .u-break-early {
 
   .has-large-font-size {
     line-height: 1.25;
-    font-size: clamped(21px, 24px) !important; 
+    font-size: clamped(19px, 24px) !important; 
     line-height: 1.74;
   }
 

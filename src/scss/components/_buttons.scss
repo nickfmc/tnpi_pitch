@@ -13,7 +13,7 @@
   color: $color-white;
   display: inline-block;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1 !important;
   text-transform: uppercase;
   padding: 0.75rem 1.25rem;
   transition: $transition-ease;
@@ -29,4 +29,11 @@
 
 .btn-dark {
 letter-spacing: 1px;
+line-height: 1 !important;
+
+}
+
+.gb-button {
+line-height: 1 !important;
+
 }

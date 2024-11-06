@@ -22,6 +22,7 @@
   max-width: 0;
   overflow: hidden;
   height: 100%;
+  z-index: 100;
 
   
  .c-search-form {
@@ -45,8 +46,12 @@
  .c-search-close-button {
   position: absolute;
   width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
-  top: 8px;
+  top: 14px;
   right: 6px;
   cursor: pointer;
   font-size: 33px;
@@ -128,14 +133,24 @@ align-items: center;
     text-align: center;
   }
   a.c-lang-select--current {
-    border: none;
+    border-color: $color-blue-darkest;
       background-color: transparent;
-      color: $color-blue-light;
+      color: $color-blue-light; 
+      &:hover {
+        border-color: #fff;
+
+      }
   }
   .c-lang-select-btn:hover {
     background-color: #fff;
     color: $color-blue-dark;
   }
+}
+
+.c-lang-select.c-lang-select--mobile {
+position: absolute;
+right: 0;
+top: 5px;
 }
 
 
@@ -178,10 +193,13 @@ align-items: center;
     font-weight: 600;
     display: block;
     margin: 0;
-    padding: 20px 15px;
+    padding: 20px 10px;
     text-transform: uppercase;
     position: relative;
     cursor: unset;
+    @media(width >= 1060px) {
+      padding: 20px 15px;
+    } 
     &:first-of-type > a {
       padding-left: 0;
     }
@@ -264,21 +282,25 @@ align-items: center;
     
   }
 
-  .c-main-menu {
-    >li.u-two-column > ul {
-      column-count: 2;
-      li  {
-        width: 300px;
-        a {
-          white-space: normal;
-        }
+.c-main-menu {
+  > li.u-two-column > ul {
+    column-count: 2;
+    
+    li {
+      width: 300px;
+      a {
+        white-space: normal;
       }
     }
+    
+    
   }
+}
+
   .c-main-menu ul li {
     position: relative;
     // max-height: 0;
-    transition: max-height 300ms linear;
+    // transition: max-height 300ms linear;
     overflow: hidden;
   }
 

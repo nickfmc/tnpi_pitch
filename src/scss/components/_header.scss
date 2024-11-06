@@ -19,12 +19,14 @@
   z-index: z(overlay);
 }
 
-.c-page-header-upper {
+.c-page-header-upper, .c-modal-nav-header-upper {
   height: 35px;
   background-color: $color-blue-darkest;
   border-bottom: 1px solid $color-blue-med;
-  padding-left: 30px;
-  padding-right: 30px;
+  @media(width <= $bp-medium) {
+  border-bottom: none;
+  } 
+
   > .o-wrapper-wide {
     height: 100%;
     padding-right: 30px;
@@ -37,7 +39,11 @@
 .is-dark-page {
   .c-page-header-upper {
     background-color: $color-blue-darkest; 
-  border-bottom: 1px solid $color-blue-med;
+
+  @media(width >= $bp-medium) {
+    border-bottom: 1px solid $color-blue-med;
+  
+  } 
   }
 }
 
@@ -46,8 +52,12 @@
   text-align: right;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+  @media(width >= $bp-medium) {
+    justify-content: flex-end;
+  
+  } 
 }
 
 .c-page-header-upper-inner span {
@@ -67,7 +77,7 @@
     &:hover {
       text-decoration: underline;
       color: $color-blue-light !important;
-      text-decoration-color: #fff;
+      text-decoration-color: $color-orange-dark;
     }
   }
 }
@@ -86,11 +96,17 @@
   height: 10px; /* Initial height */
   transition: height 0.3s;
   background-color: transparent;
+  @media(width <= $bp-medium) {
+  display: none;
+  } 
 }
 
 .c-header-main {
-  padding-left: 30px;
-  padding-right: 30px;
+  
+  // @media(width >= $bp-medium) {
+  //   padding-left: 30px;
+  //   padding-right: 30px;
+  // } 
   background-color: $color-blue-darkest;
   height: 62px;
   border-bottom: 1px solid $color-blue-med;

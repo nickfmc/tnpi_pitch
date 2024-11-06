@@ -28,20 +28,49 @@
 .gb-accordion__toggle {
    transition: $transition-ease;
 }
-.gb-accordion__toggle:hover {
+.gb-accordion:not(.is-dark-accordion) .gb-accordion__toggle:hover, .gb-accordion:not(.is-dark-accordion) .gb-accordion__item.gb-accordion__item-open {
    background-color: #fff !important;
    .gb-icon {
        
-         color: $color-blue-darkest;
-      background-color: #fff;
+         color: #fff;
+      background-color: $color-blue-darkest;
       svg {
          rect{
-            fill: $color-blue-darkest !important;
+            fill: #fff !important;
          }
       }
    }
 }
 
+
+.gb-accordion__item.gb-accordion__item-open .gb-accordion__toggle:hover, .gb-accordion:not(.is-dark-accordion) .gb-accordion__toggle:hover {
+   .gb-icon {
+       
+      color: $color-blue-darkest;
+   background-color: #fff;
+   svg {
+      rect{
+         fill: $color-blue-darkest !important;
+      }
+   }
+}
+}
+
+
+
+
 .wsp-pages-title {
    display: none;
+}
+
+.c-accordion-tittle {
+@media(width <= $bp-medium) {
+font-size: 20px !important;
+} 
+}
+
+.gb-accordion__toggle {
+   .gb-icon {
+      flex: 0 0 auto;
+   }
 }

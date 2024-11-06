@@ -20,8 +20,8 @@ add_action( 'wp', function() {
   add_filter( 'generateblocks_media_query', function( $query ) {
       $query['desktop'] = '(min-width: 1140px)';
       $query['tablet'] = '(max-width: 1139px)';
-      $query['tablet_only'] = '(max-width: 1139px) and (min-width: 900px)';
-      $query['mobile'] = '(max-width: 900px)';
+      $query['tablet_only'] = '(max-width: 1139px) and (min-width: 767px)';
+      $query['mobile'] = '(max-width: 767px)';
 
       return $query;
   } );

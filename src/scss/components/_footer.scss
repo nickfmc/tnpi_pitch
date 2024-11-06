@@ -30,8 +30,11 @@ a:hover {
     border-left: 1px solid $color-blue-med;
     color: #fff;
     .cell:last-of-type {
-      padding-left: 30px;
-      border-left: 1px solid $color-blue-med;
+      @media(width >= $bp-medium) {
+        border-left: 1px solid $color-blue-med;
+        padding-left: 30px;
+      
+      } 
     }
   }
 }
@@ -39,23 +42,25 @@ a:hover {
 .c-page-footer-lower {
   background-color: $color-blue-darkest;
   color: #fff;
-  padding-left: 30px;
-  padding-right: 30px;
+  // padding-left: 30px;
+  // padding-right: 30px;
   font-size: 15px;
   border-top: 1px solid $color-blue-med;
   > div {
     display: flex;
     align-items: center;
-    padding-left: 30px;
-    padding-right: 30px;
+    
     min-height: 60px;
     padding-top: 8px;
     padding-bottom: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+  
   }
 }
 
 .c-copywrite {
-  font-size: 18px;
+  font-size: clamped(16px, 18px);
 }
 
 .c-page-footer-topper {
@@ -63,7 +68,7 @@ a:hover {
   border-bottom: 1px solid $color-blue-med;
   transform: translateZ(1px);
   >div {
-    height: 60px;
+    min-height: 60px;
     display: flex;
     align-items: center;
     padding-left: 30px;
@@ -95,10 +100,12 @@ a:hover {
   }
   p {
     margin-bottom: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
   a:hover {
-    color: #fff;
-    text-decoration: underline;
+    color: $color-blue-light;
+    text-decoration-color: #fff;
   }
 }
 
@@ -123,18 +130,38 @@ a:hover {
   padding-right: 30px;
   align-items: center;
   min-height: 60px;
+  flex-flow: row wrap;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  gap: 15px 30px;
+  
+  @media(width >= $bp-medium) {
+    flex-direction: row;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
     > li {
-      margin-right: 50px;
+      @media(width >= $bp-medium) {
+        margin-right: 50px;
+      
+      } 
       &:last-child {
         margin-right: 0;
       }
       a {
         color: #fff;
         text-decoration: underline;
-        font-size: 18px;
+        font-size: clamped(16px, 18px);
         &:hover {
           text-decoration-color: $color-orange-dark;
         }
       }
     }
+  }
+
+  .c-widget-heading-2 {
+    @media(width <= $bp-medium) {
+      margin-top: 90px;
+    
+    } 
   }

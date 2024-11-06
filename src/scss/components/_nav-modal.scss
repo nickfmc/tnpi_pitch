@@ -27,7 +27,7 @@
    z-index: 100;
    margin: 0;
    position: absolute;
-   right: 0;
+   right: 30px;
    font-size: 40px;
    top: 10px;
    display: -webkit-box; 
@@ -40,7 +40,7 @@
            a {
              color: $color-open-btn;
            }
- }
+ } 
  @media (width >= 325px) {
    .c-modal-nav-button-wrap {
      font-size: 40px;

@@ -18,15 +18,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const progressBar = videoPlayer.querySelector('.progress-bar');
         const progressContainer = videoPlayer.querySelector('.progress-container');
         const transcript = videoPlayer.closest('.alignfull').querySelector('.transcript'); // Find the transcript outside the video player
+        const playIcon = videoPlayer.querySelector('.c-play-icon');
 
         // Play/Pause functionality
         function togglePlayPause() {
             if (video.paused) {
                 video.play();
                 playPauseButton.textContent = 'Pause';
+                playIcon.classList.add('is-hidden'); // Hide play icon
             } else {
                 video.pause();
                 playPauseButton.textContent = 'Play';
+                playIcon.classList.remove('is-hidden'); // Show play icon
             }
         }
 
@@ -38,6 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!event.target.closest('.controls')) {
                 togglePlayPause();
             }
+        });
+
+        // Play/Pause functionality when clicking on the play icon
+        playIcon.addEventListener('click', function(event) {
+            togglePlayPause();
         });
 
         // Mute/Unmute functionality (only if the button exists)
@@ -82,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
         video.addEventListener('timeupdate', function() {
             const progress = (video.currentTime / video.duration) * 100;
             progressBar.style.width = `${progress}%`;
+            // Update ARIA attributes for accessibility
+    progressContainer.setAttribute('aria-valuenow', progress.toFixed(2));
         });
 
         // Seek functionality
@@ -304,11 +314,21 @@ document.addEventListener('DOMContentLoaded', function() {
     menuButtons.forEach(button => {
         button.addEventListener('click', function() {
             const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+
+            // Close all other menu items
+            menuButtons.forEach(btn => {
+                if (btn !== this) {
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle the clicked menu item
             this.setAttribute('aria-expanded', !expanded);
             const submenu = this.nextElementSibling;
             if (submenu && !expanded) {
                 submenu.querySelector('a').focus();
             }
+
             // Toggle .c-nav-bg visibility
             if (!expanded) {
                 navBg.classList.add('visible');
@@ -372,8 +392,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
-          // Close menu on Esc key press
-          if (e.key === 'Escape') {
+        // Close menu on Esc key press
+        if (e.key === 'Escape') {
             menuButtons.forEach(button => {
                 button.setAttribute('aria-expanded', 'false');
             });
@@ -381,115 +401,175 @@ document.addEventListener('DOMContentLoaded', function() {
             document.activeElement.blur(); // Release focus
         }
     });
+
+        // Handle pageshow event to reset state when navigating back
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                // Reset the state of .c-nav-bg and menu buttons
+                navBg.classList.remove('visible');
+                menuButtons.forEach(button => {
+                    button.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+
+        
 });
 
 
-// a hover + click dropdown menu
-
-document.getElementById('open-modal-nav').addEventListener('click', function(){
-    document.querySelector('html').classList.add('has-modal-nav-open');
-});
-
-document.getElementById('close-modal-nav').addEventListener('click', function(){
-    document.querySelector('html').classList.remove('has-modal-nav-open');
-});
-
-// Close modal nav when clicking outside of it when it already open
-document.addEventListener('click', function(e){
-    // Your existing code here
-});
 
 
-// Close modal nav when clicking outside of it when it already open
-  document.addEventListener('click', function(e){
+
+// document.getElementById('open-modal-nav').addEventListener('click', function(){
+//     document.querySelector('html').classList.add('has-modal-nav-open');
+// });
+
+// document.getElementById('close-modal-nav').addEventListener('click', function(){
+//     document.querySelector('html').classList.remove('has-modal-nav-open');
+// });
+
+const openModalNav = document.getElementById('open-modal-nav');
+const closeModalNav = document.getElementById('close-modal-nav');
+const html = document.querySelector('html');
+const modalNavWrap = document.querySelector('.c-modal-nav-wrap');
+
+function openMenu() {
+    html.classList.add('has-modal-nav-open');
+    openModalNav.setAttribute('aria-expanded', 'true');
+    closeModalNav.setAttribute('aria-expanded', 'true');
+    modalNavWrap.removeAttribute('hidden');
+    modalNavWrap.setAttribute('aria-modal', 'true'); // Add this line
+    trapFocus(modalNavWrap);
+    closeModalNav.focus(); // Move focus to the close button when menu opens
+}
+
+function closeMenu() {
+    html.classList.remove('has-modal-nav-open');
+    openModalNav.setAttribute('aria-expanded', 'false');
+    closeModalNav.setAttribute('aria-expanded', 'false');
+    modalNavWrap.setAttribute('hidden', '');
+    modalNavWrap.setAttribute('aria-modal', 'false'); // Add this line
+    openModalNav.focus(); // Return focus to the open button when menu closes
+}
+
+
+openModalNav.addEventListener('click', openMenu);
+closeModalNav.addEventListener('click', closeMenu);
+
+// Close modal nav when clicking outside of it when it's already open
+document.addEventListener('click', function(e) {
     var isClickOnButton = e.target.closest('#open-modal-nav') !== null;
     var isClickInsideModal = e.target.closest('.c-modal-nav-wrap') !== null;
-    var isModalOpen = document.querySelector('html').classList.contains('has-modal-nav-open');
+    var isModalOpen = html.classList.contains('has-modal-nav-open');
 
     if (!isClickOnButton && !isClickInsideModal && isModalOpen) {
-      document.querySelector('html').classList.remove('has-modal-nav-open');
+        closeMenu();
     }
-  });
+});
 
-    // Close modal nav when pressing the escape key
-    document.addEventListener('keydown', function(e){
-      if (e.key === 'Escape') {
-        document.querySelector('html').classList.remove('has-modal-nav-open');
-      }
-    });
+// Close modal nav when pressing the escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && html.classList.contains('has-modal-nav-open')) {
+        closeMenu();
+    }
+});
 
-
-     // Trap focus inside the modal nav
-  function trapFocus(element) {
+// Trap focus inside the modal nav
+function trapFocus(element) {
     var focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
     var firstFocusableElement = focusableElements[0];
     var lastFocusableElement = focusableElements[focusableElements.length - 1];
-  
+
     firstFocusableElement.focus();
-  
+
     element.addEventListener('keydown', function(e) {
-      var isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-  
-      if (!isTabPressed) {
-        return; 
-      }
-  
-      if (e.shiftKey) { // if shift key pressed for shift + tab combination
-        if (document.activeElement === firstFocusableElement) {
-          lastFocusableElement.focus(); // add focus for the last focusable element
-          e.preventDefault();
+        var isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+        if (!isTabPressed) {
+            return; 
         }
-      } else { // if tab key is pressed
-        if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-          firstFocusableElement.focus(); // add focus for the first focusable element
-          e.preventDefault();
+
+        if (e.shiftKey) { // if shift key pressed for shift + tab combination
+            if (document.activeElement === firstFocusableElement) {
+                lastFocusableElement.focus(); // add focus for the last focusable element
+                e.preventDefault();
+            }
+        } else { // if tab key is pressed
+            if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+                firstFocusableElement.focus(); // add focus for the first focusable element
+                e.preventDefault();
+            }
         }
-      }
-    });
-  }
-  var modalNavWrap = document.querySelector('.c-modal-nav-wrap');
-  trapFocus(modalNavWrap);
+    }); 
+}
+// var modalNavWrap = document.querySelector('.c-modal-nav-wrap');
+trapFocus(modalNavWrap);
 
-
-
-// SLIDING VERSION ////////////////////
-// Get all the menu items that have a submenu
-var menuItems = document.querySelectorAll('.c-mobile-menu .menu-item-has-children');
+// ACCORDION VERSION ////////////////////
+// Get all the top-level menu items that have a submenu
+var menuItems = document.querySelectorAll('.c-mobile-menu > .menu-item-has-children');
 
 // Loop through the menu items
 menuItems.forEach(function(menuItem) {
-  // Get the link inside the menu item
-  var link = menuItem.querySelector('a');
+    // Get the link inside the menu item
+    var link = menuItem.querySelector('a');
 
-  // Clone the link
-  var clonedLink = link.cloneNode(true);
+    // Get the submenu inside the menu item
+    var submenu = menuItem.querySelector('.sub-menu');
 
-  // Get the submenu inside the menu item
-  var submenu = menuItem.querySelector('.sub-menu');
+    // Add a click event listener to the original link
+    link.addEventListener('click', function(event) {
+        // Prevent the link from navigating to the href
+        event.preventDefault();
+        
+        // Close all other menu items except for ancestors of the clicked item
+        menuItems.forEach(function(otherMenuItem) {
+            if (otherMenuItem !== menuItem && !menuItem.contains(otherMenuItem) && !otherMenuItem.contains(menuItem)) {
+                otherMenuItem.classList.remove('is-open');
+                var otherSubmenu = otherMenuItem.querySelector('.sub-menu');
+                if (otherSubmenu) {
+                    otherSubmenu.style.height = null;
+                    otherSubmenu.classList.remove('open');
+                    setTabIndex(otherSubmenu, -1); // Set tabindex to -1 for hidden items
+                }
+            }
+        });
+        
+        // Toggle the 'open' class on the submenu
+        submenu.classList.toggle('open');
+        
+        // Toggle the 'is-open' class on the menu item
+        menuItem.classList.toggle('is-open');
 
-  // Insert the cloned link at the top of the submenu
-  submenu.insertBefore(clonedLink, submenu.firstChild);
+        // Set tabindex for focusable elements
+        if (submenu.classList.contains('open')) {
+            setTabIndex(submenu, 0); // Remove tabindex for visible items
+        } else {
+            setTabIndex(submenu, -1); // Set tabindex to -1 for hidden items
+        }
+    });
 
-  // Add a click event listener to the original link
-  link.addEventListener('click', function(event) {
-    // Prevent the link from navigating to the href
-    event.preventDefault();
+    // Add a span inside the top-level a tags
+    var span = document.createElement('span');
+    span.textContent = ' '; // Add any text or leave it empty
+    link.appendChild(span);
 
-    // Add the 'open' class to the submenu
-    submenu.classList.add('open');
-  });
-
-  // Add a back button to the submenu
-  var backButton = document.createElement('button');
-  backButton.textContent = 'Back';
-  backButton.addEventListener('click', function() {
-    // Remove the 'open' class from the submenu
-    submenu.classList.remove('open');
-  });
-  submenu.insertBefore(backButton, submenu.firstChild);
+    // Initially set tabindex to -1 for all focusable elements in the submenu
+    setTabIndex(submenu, -1);
 });
-// SLIDING VERSION ////////////////////
 
+// Function to set tabindex for focusable elements
+function setTabIndex(element, index) {
+    var focusableElements = element.querySelectorAll('a, button, input, select, textarea, [tabindex]');
+    focusableElements.forEach(function(focusable) {
+        if (index === 0) {
+            focusable.removeAttribute('tabindex');
+        } else {
+            focusable.setAttribute('tabindex', index);
+        }
+    });
+}
+// // ACCORDION VERSION ////////////////////
 
 
 // Select all buttons with the class 'gb-tabs__button'
@@ -509,61 +589,6 @@ buttons.forEach(function(button) {
   // Insert the span before the button text
   button.insertBefore(span, button.firstChild);
 });
-
-// // ACCORDION VERSION ////////////////////
-// // Get all the menu items that have a submenu
-// var menuItems = document.querySelectorAll('.c-mobile-menu .menu-item-has-children');
-
-// // Loop through the menu items
-// menuItems.forEach(function(menuItem) {
-//   // Get the link inside the menu item
-//   var link = menuItem.querySelector('a');
-
-//   // Clone the link
-//   var clonedLink = link.cloneNode(true);
-
-//   // Add 'Overview' to the cloned link text
-//   clonedLink.textContent += ' Overview';
-
-//   // Get the submenu inside the menu item
-//   var submenu = menuItem.querySelector('.sub-menu');
-
-//   // Insert the cloned link at the top of the submenu
-//   submenu.insertBefore(clonedLink, submenu.firstChild);
-
-//   // Add a click event listener to the original link
-//   link.addEventListener('click', function(event) {
-//     // Prevent the link from navigating to the href
-//     event.preventDefault();
-
-//     // Close all other menu items
-//     menuItems.forEach(function(otherMenuItem) {
-//       if (otherMenuItem !== menuItem) {
-//         otherMenuItem.classList.remove('is-open');
-//         var otherSubmenu = otherMenuItem.querySelector('.sub-menu');
-//         otherSubmenu.style.height = null;
-//         otherSubmenu.classList.remove('open');
-//       }
-//     });
-
-//     // Toggle the 'open' class on the submenu
-//     submenu.classList.toggle('open');
-
-//     // Toggle the 'is-open' class on the menu item
-//     menuItem.classList.toggle('is-open');
-
-//     // If the submenu is open, set its height to its scrollHeight
-//     if (submenu.classList.contains('open')) {
-//       submenu.style.height = submenu.scrollHeight + 'px';
-//     } else {
-//       submenu.style.height = null;
-//     }
-//   });
-// });
-// // ACCORDION VERSION ////////////////////
-
-
-
 
 
 

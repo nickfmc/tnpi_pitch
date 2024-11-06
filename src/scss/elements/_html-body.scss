@@ -5,6 +5,8 @@
  
 html {
  font-size: 16px;
+ overflow-x: hidden;
+
 }
 
 // html {
@@ -16,7 +18,10 @@ body {
   font-family: $font-primary;
   line-height: $line-height-normal;
   -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  position: relative;
   // padding-top: $page-header-height // match height of header used by headroom.js (if using)
+ 
 }
 
 $focus-color: #F26531; // Example focus color

@@ -4,7 +4,11 @@
 
 .c-logo-main {
   position: absolute;
-  top: 8px;
+  top: 13px;
+  @media(width >= $bp-medium) {
+    top: 8px;
+  
+  } 
   z-index: z(default);
   & a {
     display: block;
