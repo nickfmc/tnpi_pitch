@@ -30,7 +30,7 @@
 </div>
 <div class="c-lang-select" role="navigation" aria-label="Language selector">
        <a href="/" class="c-lang-select-btn c-lang-select--current" id="lang-en" aria-label="Select English">EN</a>
-        <a href="https://fr.tnpi.ca/" class="c-lang-select-btn" id="lang-fr" aria-label="Select French">FR</a>
+        <a href="https://ptni.ca/" class="c-lang-select-btn" id="lang-fr" aria-label="Select French">FR</a>
 </div>
 
 </nav>

@@ -284,6 +284,25 @@ margin-left: 0;
   margin: 0 11px 0 0;
 }
 
+.editor-content ul.u-no-dot li::before {
+  display: none;
+}
+
+.editor-content ul.u-no-dot li a mark {
+  position: relative;
+}
+
+.editor-content ul.u-no-dot li a mark::before {
+  display: block; 
+  background-color: $color-orange-dark;
+  content: "";
+	position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  top: 12px;
+  left: -17px;
+}
 
 
 //buttons
@@ -341,6 +360,8 @@ body .u-break-early {
     line-height: 1.25;
     font-size: clamped(19px, 24px) !important; 
     line-height: 1.74;
+    word-spacing: 0 !important;
+    font-weight: 400 !important;
   }
 
   .has-small-font-size {

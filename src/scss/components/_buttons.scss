@@ -19,6 +19,7 @@
   transition: $transition-ease;
   white-space: nowrap;
   letter-spacing: 1px;
+
   &:hover {
     background-color: $color-gray-light;
     color: $color-black;
@@ -30,6 +31,7 @@
 .btn-dark {
 letter-spacing: 1px;
 line-height: 1 !important;
+text-align: center !important;
 
 }
 

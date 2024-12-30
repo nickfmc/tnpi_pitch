@@ -3222,6 +3222,16 @@
    HTML AND BODY ELEMENT STYLES
     - root font sizes set here so REMs scale with screen size increases
    ========================================================================== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {
+  outline: 2px solid #F26531 !important;
+  outline-offset: -2px;
+}
+
 html {
   font-size: 16px;
   overflow-x: hidden;
@@ -3236,15 +3246,16 @@ body {
   position: relative;
 }
 
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 1px solid #F26531;
-  outline-offset: 0px;
+@media (forced-colors: active) {
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus,
+  [tabindex]:focus {
+    outline: 2px solid SelectedItem !important;
+  }
 }
-
 .is-dark-page:not(.search) {
   background-color: #1C2674;
 }
@@ -3593,6 +3604,7 @@ form .gform_page_footer input.gform_next_button, form .gform_page_footer input.g
 .is-dark-page form .gfield_required .gfield_required_text, .is-dark-page .gform-body .gfield_required .gfield_required_text, .o-blue-wrapper form .gfield_required .gfield_required_text, .o-blue-wrapper-after-banner form .gfield_required .gfield_required_text, .o-blue-wrapper .gform-body:not([type=checkbox]):not([type=radio]) .gfield_required .gfield_required_text, .o-blue-wrapper-after-banner .gform-body:not([type=checkbox]):not([type=radio]) .gfield_required .gfield_required_text {
   color: #739DD2;
   font-style: normal;
+  margin-left: 9px;
 }
 
 .gform-theme--foundation .gform_fields {
@@ -3653,6 +3665,22 @@ body.is-dark-page .gform_wrapper.gravity-theme .gform_footer input.gform_button.
   font-style: none !important;
 }
 
+body .gravity-theme table.gsurvey-likert {
+  margin-top: 30px !important;
+}
+
+body .gravity-theme .gfield--type-survey {
+  margin-top: 30px;
+}
+
+#gform_fields_3_4 .gfield--type-survey {
+  margin-top: 0 !important;
+}
+
+#field_3_26 {
+  margin-top: 30px !important;
+}
+
 body .gravity-theme table.gsurvey-likert th.gsurvey-likert-choice-label {
   background-color: #1C2674 !important;
   font-weight: 400 !important;
@@ -3671,9 +3699,9 @@ body .gravity-theme table.gsurvey-likert, table.gsurvey-likert .gsurvey-likert-c
 }
 
 #gform_3 .gfield_label.gform-field-label {
-  font-weight: 400;
-  font-size: clamp(1.19rem, 0.5vw + 1.06rem, 1.5rem) !important;
-  line-height: 1.74;
+  font-weight: 400 !important;
+  margin-bottom: 2px !important;
+  font-size: 18px !important;
 }
 
 .gfield--input-type-likert {
@@ -3702,6 +3730,8 @@ body .gform_wrapper.gravity-theme .gfield_error label, body .gform_wrapper.gravi
   display: inline-flex !important;
   padding: 15px 25px !important;
   border-radius: 0 !important;
+  font-family: "Open Sans Condensed", sans-serif !important;
+  font-weight: 600;
   text-transform: uppercase !important;
 }
 
@@ -3709,17 +3739,35 @@ body .gform_wrapper.gravity-theme .gfield_error label, body .gform_wrapper.gravi
   display: none;
 }
 #gform_wrapper_3 .gfield_required {
-  margin-top: 10px;
-  display: block !important;
-  color: #fff !important;
   font-style: normal !important;
+}
+#gform_wrapper_3 .gchoice {
+  margin-bottom: 10px;
+}
+#gform_wrapper_3 .gchoice label {
   font-size: 16px !important;
+  padding-left: 15px;
+  line-height: 1.2;
 }
 
 .gform_page_footer {
   padding-top: 54px !important;
 }
 
+.gform_wrapper .gfield--input-type-radio .gfield_radio, .gform_wrapper .gfield--type-checkbox .gfield_checkbox {
+  margin-top: 30px !important;
+}
+
+#input_3_24 {
+  margin-bottom: 35px;
+}
+
+@media (width <= 992px) {
+  .gravity-theme .gform_fields table.gsurvey-likert td::after {
+    position: absolute;
+    top: 15px;
+  }
+}
 /* ==========================================================================
    A TAG (links) STYLES
    ========================================================================== */
@@ -3815,6 +3863,7 @@ main p + .is-style-u-eyebrow-heading {
 .btn-dark {
   letter-spacing: 1px;
   line-height: 1 !important;
+  text-align: center !important;
 }
 
 .gb-button {
@@ -6804,6 +6853,15 @@ main p + .is-style-u-eyebrow-heading {
   .u-no-spacing-lists .gb-grid-column div ul:last-of-type li:last-of-type, .u-no-spacing-lists .gb-grid-column div ol:last-of-type li:last-of-type {
     padding-bottom: 0;
   }
+}
+
+.no-phone-link {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: text;
+  -webkit-text-fill-color: inherit;
+  color: inherit;
 }
 
 .is-style-secondaryfont {

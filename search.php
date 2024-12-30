@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="o-layout-row">
-  <main class="o-wrapper-wide" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/WebPageElement">
+  <main id="main-content" class="o-wrapper-wide" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/WebPageElement">
 
 
   <section class="editor-content">
@@ -21,16 +21,22 @@
     <div>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
      
-        <article <?php post_class(); ?> role="article">
-          <header class="c-article-header">
-            <h2 class="h4-style"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-            
-          </header>
-          <!-- /c-article-header -->
-          <section class="c-excerpt-content">
-            <?php the_excerpt(); ?>
-          </section>
-          <!-- /c-excerpt-content -->
+        <article <?php post_class(); ?> role="article" aria-label="Search result">
+                  <header class="c-article-header">
+                    <h2 class="h4-style">
+                      <a href="<?php the_permalink() ?>" 
+                         rel="bookmark" 
+                         title="<?php the_title_attribute(); ?>"
+                         aria-label="<?php printf( 'Read full article: %s', get_the_title() ); ?>">
+                         <?php the_title(); ?>
+                      </a>
+                    </h2>
+                  </header>
+                  <!-- /c-article-header -->
+                  <section class="c-excerpt-content" aria-label="Article excerpt">
+                    <?php the_excerpt(); ?>
+                  </section>
+                  <!-- /c-excerpt-content -->
         </article>
         <!-- /article -->
             <?php endwhile; ?>

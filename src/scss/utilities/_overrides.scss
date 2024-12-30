@@ -44,16 +44,19 @@
 
 
 .gb-accordion__item.gb-accordion__item-open .gb-accordion__toggle:hover, .gb-accordion:not(.is-dark-accordion) .gb-accordion__toggle:hover {
-   .gb-icon {
+   @media(width >= $bp-medium) {
+      .gb-icon {
        
-      color: $color-blue-darkest;
-   background-color: #fff;
-   svg {
-      rect{
-         fill: $color-blue-darkest !important;
+         color: $color-blue-darkest;
+      background-color: #fff;
+      svg {
+         rect{
+            fill: $color-blue-darkest !important;
+         }
       }
    }
-}
+   } 
+
 }
 
 
@@ -73,4 +76,8 @@ font-size: 20px !important;
    .gb-icon {
       flex: 0 0 auto;
    }
+}
+
+.page-id-73 .c-page-footer{
+margin-top: -1px;
 }

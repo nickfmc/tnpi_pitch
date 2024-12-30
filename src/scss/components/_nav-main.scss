@@ -39,6 +39,13 @@
     &::placeholder {
       color: $color-blue-light;
     }
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      height: 16px;
+      width: 16px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>') no-repeat center center;
+      cursor: pointer;
+    }
   }
 
   }
@@ -78,8 +85,8 @@ button:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 1px solid $focus-color;
-  outline-offset: 0px;
+  outline: 2px solid $focus-color;
+  outline-offset: -2px;
   
 }
 }
@@ -262,7 +269,7 @@ top: 5px;
 // ++ menu style (drop down!) +++++++++++++++++++++++++++++++++
 @media (width >= $bp-large) {
   .c-main-menu li:hover ul, 
-  .c-main-menu li.focus ul {
+  .c-main-menu li:focus ul {
     opacity: 1;
     visibility: visible;
 
@@ -311,7 +318,7 @@ top: 5px;
     }
   }
   // .c-main-menu li:hover ul li,
-  // .c-main-menu li.focus ul li {
+  // .c-main-menu li:focus ul li {
   //   max-height: 140px;
   // }
  
@@ -330,8 +337,15 @@ top: 5px;
     border: 1px solid transparent; 
 
     &:focus, &:active {
-      border: 1px solid #F26531 !important; 
-  outline-offset: 0px;  
+      outline: 2px solid #F26531 !important;
+  outline-offset: -2px;  
+    }
+
+      // For Windows High Contrast Mode compatibility
+      &:focus-visible {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 2px #0066CC;
     }
   
   }
@@ -339,8 +353,8 @@ top: 5px;
   // Increase specificity for debugging
 .c-main-menu ul li a:focus, 
 .c-main-menu ul li a:active {
-    outline: 1px solid #F26531 !important; 
-    outline-offset: 0px;  
+    outline: 2px solid #F26531 !important; 
+    outline-offset: -2px;  
 }
 
   .c-main-menu ul ul {

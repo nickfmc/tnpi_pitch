@@ -96,6 +96,8 @@ form, .gform-body {
   }
   }
 
+  // input type
+
 
   .gform_page_footer {
 
@@ -133,6 +135,7 @@ form, .gform-body {
     .gfield_required .gfield_required_text {
       color: #739DD2;
       font-style: normal;
+      margin-left: 9px;
     }
     --Colors-Background-bg-primary: #28317B;
   }
@@ -199,6 +202,22 @@ form, .gform-body {
 
   }
 
+  body .gravity-theme table.gsurvey-likert {
+    margin-top: 30px !important;
+  }
+
+  body .gravity-theme .gfield--type-survey {
+    margin-top: 30px;
+  }
+
+  #gform_fields_3_4  .gfield--type-survey {
+    margin-top: 0 !important;
+  }
+
+  #field_3_26  {
+    margin-top: 30px !important;
+  }
+
   body .gravity-theme table.gsurvey-likert th.gsurvey-likert-choice-label {
     background-color: $color-blue-darkest !important;
     font-weight: 400 !important;
@@ -217,11 +236,15 @@ form, .gform-body {
   }
 
   #gform_3 .gfield_label.gform-field-label{
-
-    font-weight: 400;
-    font-size: clamp(1.19rem,0.5vw + 1.06rem,1.5rem) !important;
-  line-height: 1.74;
+    font-weight: 400 !important;
+    margin-bottom: 2px !important;
+    font-size: 18px !important;
+    // font-weight: 400;
+    // font-size: clamp(1.19rem,0.5vw + 1.06rem,1.5rem) !important;
+  // line-height: 1.74;
   }
+
+  
 
   .gfield--input-type-likert {
     margin-bottom: 30px !important;
@@ -245,8 +268,11 @@ h2 {
   .gform_page_footer .button.gform_button {
     cursor: pointer;
     display: inline-flex !important;
-    padding: 15px 25px !important;
+    padding: 15px 25px !important; 
     border-radius: 0 !important;
+    font-family: $font-secondary !important;
+    font-weight: 600;
+
     text-transform: uppercase !important; 
   }
 
@@ -256,11 +282,19 @@ h2 {
     }
 
     .gfield_required {
-      margin-top: 10px;
-      display: block !important;
-      color: #fff !important;
+      // margin-top: 10px;
+      // display: block !important;
       font-style: normal !important;
-      font-size: 16px !important;
+      // font-size: 16px !important;
+    }
+
+    .gchoice  {
+      margin-bottom: 10px;
+      label {
+        font-size: 16px !important;
+        padding-left: 15px;
+        line-height: 1.2;
+      }
     }
   }
 
@@ -268,3 +302,18 @@ h2 {
   .gform_page_footer  {
     padding-top: 54px !important;
   }
+
+  .gform_wrapper .gfield--input-type-radio  .gfield_radio, .gform_wrapper .gfield--type-checkbox .gfield_checkbox{
+margin-top: 30px !important;
+  }
+
+  #input_3_24 {
+    margin-bottom: 35px;
+  }
+
+  @media(width <= $bp-large) {
+    .gravity-theme .gform_fields table.gsurvey-likert td::after {
+      position: absolute;
+      top: 15px;
+    }
+  } 

@@ -148,3 +148,13 @@
   }
 }
 }
+
+.no-phone-link {
+
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: text;
+  -webkit-text-fill-color: inherit;
+  color: inherit;
+}

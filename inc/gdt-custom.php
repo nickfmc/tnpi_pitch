@@ -128,6 +128,26 @@ class Custom_Menu_Walker extends Walker_Nav_Menu {
 }
 
 
+// dynamic GB alt tags
+add_filter( 'render_block', function( $content, $block ) {
+    if (
+        'generateblocks/image' !== $block['blockName'] ||
+        ! isset( $block['attrs']['mediaId'] )
+    ) {
+        return $content;
+    }
+
+    $image_alt = get_post_meta($block['attrs']['mediaId'], '_wp_attachment_image_alt', TRUE);
+
+    return preg_replace(
+        '/(alt=")([^"]*)(")/',
+        "$1{$image_alt}$3",
+        $content
+    );
+
+}, 10, 2 );
+
+
 // class Custom_Menu_Walker extends Walker_Nav_Menu {
 //     // Start Level
 //     function start_lvl(&$output, $depth = 0, $args = array()) {
