@@ -317,3 +317,10 @@ margin-top: 30px !important;
       top: 15px;
     }
   } 
+
+  .gform_wrapper.gravity-theme .gform_validation_errors > ol a {
+    color: #fff !important;
+    &::before {
+      color: #fff !important;
+    }
+  }

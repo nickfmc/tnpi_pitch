@@ -4196,6 +4196,13 @@ body .gform_wrapper.gravity-theme .gfield_error label, body .gform_wrapper.gravi
     top: 15px;
   }
 }
+.gform_wrapper.gravity-theme .gform_validation_errors > ol a {
+  color: #fff !important;
+}
+.gform_wrapper.gravity-theme .gform_validation_errors > ol a::before {
+  color: #fff !important;
+}
+
 /* ==========================================================================
    A TAG (links) STYLES
    ========================================================================== */
@@ -4690,6 +4697,10 @@ main p + .is-style-u-eyebrow-heading {
 .wp-block-image {
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+.search-results .has-large-font-size {
+  font-size: clamp(1rem, 0.2vw + 0.95rem, 1.13rem) !important;
 }
 
 /* ==========================================================================

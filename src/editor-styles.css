@@ -3768,6 +3768,13 @@ body .gform_wrapper.gravity-theme .gfield_error label, body .gform_wrapper.gravi
     top: 15px;
   }
 }
+.gform_wrapper.gravity-theme .gform_validation_errors > ol a {
+  color: #fff !important;
+}
+.gform_wrapper.gravity-theme .gform_validation_errors > ol a::before {
+  color: #fff !important;
+}
+
 /* ==========================================================================
    A TAG (links) STYLES
    ========================================================================== */
