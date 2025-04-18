@@ -17,7 +17,8 @@
   <?php // START Google Analytics here ?>
   <?php // END Analytics ?>
 </head>
-
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1BRKYM083"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-E1BRKYM083'); </script>
+ 
 <body <?php 
     $classes = pretty_body_class();
     if (get_field('is_dark_page')) {
